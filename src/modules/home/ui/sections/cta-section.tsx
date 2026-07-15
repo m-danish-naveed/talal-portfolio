@@ -1,5 +1,7 @@
 "use client";
 
+import { FiArrowRight } from "react-icons/fi";
+
 import Link from "next/link";
 
 import { motion } from "framer-motion";
@@ -76,19 +78,7 @@ export function CtaSection() {
                 className="group flex items-center justify-center gap-4 rounded-lg bg-white px-8 py-4 text-sm font-medium text-black transition-transform hover:scale-105 active:scale-95"
               >
                 <span>Contact</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="42"
-                  viewBox="0 0 42 14"
-                  fill="none"
-                  className="transition-transform group-hover:translate-x-1"
-                >
-                  <path
-                    d="M40.5 7C40.5 7 23.9315 7 0.5 7M40.5 7L34.5 13M40.5 7L34.5 0.999999"
-                    stroke="currentColor"
-                    strokeLinecap="square"
-                  />
-                </svg>
+                <FiArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
           </div>

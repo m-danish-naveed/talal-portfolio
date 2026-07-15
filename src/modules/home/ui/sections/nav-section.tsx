@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
 
 import Image from "next/image";
 import Link from "next/link";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
 
 import { NavLink } from "@/lib/components/nav-link";
 
@@ -42,11 +42,11 @@ export function NavSection() {
         <div className="mx-auto flex max-w-[90rem] items-center justify-between px-5 py-3 md:px-10 lg:px-16">
           <Link href="/" className="z-50 shrink-0">
             <Image
-              src="/images/logo.svg"
+              src="/images/brand/logo.svg"
               alt="Hamas Logo"
               width={80}
               height={24}
-              className="h-6 w-auto invert" // Invert if the original is black, or not. Sam's is white, but sometimes SVGs need it.
+              className="h-6 w-auto"
             />
           </Link>
 
@@ -54,9 +54,6 @@ export function NavSection() {
           <nav className="hidden items-center space-x-8 md:flex">
             <NavLink href="/">Home</NavLink>
             <NavLink href="#work">Work</NavLink>
-            <NavLink href="#" isExternal>
-              Masterclass
-            </NavLink>
             <div className="bg-surface h-4 w-px" />
             <Link
               href="mailto:engineer.hamas.munawar@gmail.com"
@@ -73,9 +70,9 @@ export function NavSection() {
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
-              <X className="h-6 w-6" />
+              <FiX className="h-6 w-6" />
             ) : (
-              <Menu className="h-6 w-6" />
+              <FiMenu className="h-6 w-6" />
             )}
           </button>
         </div>
@@ -104,14 +101,6 @@ export function NavSection() {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Work
-            </NavLink>
-            <NavLink
-              href="#"
-              isExternal
-              className="text-2xl font-bold"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Masterclass
             </NavLink>
             <Link
               href="mailto:engineer.hamas.munawar@gmail.com"

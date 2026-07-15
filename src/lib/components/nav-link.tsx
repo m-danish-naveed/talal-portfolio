@@ -1,3 +1,5 @@
+import { FiArrowUpRight } from "react-icons/fi";
+
 import Link from "next/link";
 
 import { cn } from "@/lib/utils/cn";
@@ -29,20 +31,7 @@ export function NavLink({
         {...props}
       >
         {children}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="6"
-          height="6"
-          viewBox="0 0 6 6"
-          fill="none"
-          className="opacity-50"
-        >
-          <path
-            d="M5.24264 5.36373V1.12109L1 1.12109"
-            stroke="currentColor"
-            strokeLinecap="square"
-          />
-        </svg>
+        <FiArrowUpRight className="h-3 w-3 opacity-50" />
       </a>
     );
   }

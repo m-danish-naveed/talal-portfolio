@@ -1,6 +1,5 @@
 import { Fragment } from "react";
-
-import Image from "next/image";
+import { FaInstagram, FaYoutube } from "react-icons/fa";
 
 import { homeConfig } from "@/data/pages/home.config";
 
@@ -18,13 +17,12 @@ export function SocialSection() {
               rel="noopener noreferrer"
               className="flex items-center gap-4 transition-opacity hover:opacity-60"
             >
-              <Image
-                src={social.icon}
-                alt={social.name}
-                width={24}
-                height={24}
-                className="h-6 w-6 flex-none"
-              />
+              {social.iconName === "instagram" && (
+                <FaInstagram className="h-6 w-6 flex-none" />
+              )}
+              {social.iconName === "youtube" && (
+                <FaYoutube className="h-6 w-6 flex-none" />
+              )}
               <span className="text-base font-medium">{social.name}</span>
             </a>
             {index < socials.length - 1 && (

@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { FaPlay } from "react-icons/fa";
+import { FiMail, FiMapPin } from "react-icons/fi";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -38,13 +40,7 @@ export function HeroSection() {
         {/* Meta Info */}
         <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
           <div className="flex items-center gap-2">
-            <Image
-              src="/images/pin-location.svg"
-              alt="Location"
-              width={16}
-              height={16}
-              className="opacity-60"
-            />
+            <FiMapPin className="h-4 w-4 opacity-60" />
             <span className="text-muted text-sm tracking-widest">
               {hero.location}
             </span>
@@ -54,13 +50,7 @@ export function HeroSection() {
             href={`mailto:${hero.email}`}
             className="group flex items-center gap-2 transition-opacity hover:opacity-80"
           >
-            <Image
-              src="/images/mail.svg"
-              alt="Email"
-              width={16}
-              height={16}
-              className="opacity-60 group-hover:opacity-100"
-            />
+            <FiMail className="h-4 w-4 opacity-60 transition-opacity group-hover:opacity-100" />
             <span className="text-muted group-hover:text-foreground text-sm tracking-widest">
               {hero.email}
             </span>
@@ -95,19 +85,13 @@ export function HeroSection() {
               aria-label="Play showreel"
             >
               <Image
-                src="/images/showreel-icon.svg"
+                src="/images/brand/showreel-icon.svg"
                 alt="Showreel Circular Text"
                 width={148}
                 height={148}
                 className="animate-spin-slow h-24 w-24 opacity-90 transition-opacity group-hover:opacity-100 md:h-[148px] md:w-[148px]"
               />
-              <Image
-                src="/images/play.svg"
-                alt="Play"
-                width={24}
-                height={24}
-                className="absolute z-10 h-4 w-4 opacity-90 transition-opacity group-hover:opacity-100 md:h-6 md:w-6"
-              />
+              <FaPlay className="absolute z-10 h-4 w-4 opacity-90 transition-opacity group-hover:opacity-100 md:h-6 md:w-6" />
             </button>
           </div>
         </div>

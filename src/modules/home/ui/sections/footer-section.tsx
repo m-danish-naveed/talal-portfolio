@@ -1,3 +1,6 @@
+import { FaInstagram, FaYoutube } from "react-icons/fa";
+import { FiMail } from "react-icons/fi";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -17,7 +20,7 @@ export function FooterSection() {
               className="shrink-0 transition-opacity hover:opacity-60"
             >
               <Image
-                src="/images/logo.svg"
+                src="/images/brand/logo.svg"
                 alt="Hamas Logo"
                 width={80}
                 height={22}
@@ -29,13 +32,7 @@ export function FooterSection() {
               href={`mailto:${hero.email}`}
               className="flex items-center gap-2 text-base text-white transition-opacity hover:opacity-60"
             >
-              <Image
-                src="/images/mail.svg"
-                alt="Email"
-                width={24}
-                height={24}
-                className="h-6 w-6"
-              />
+              <FiMail className="h-6 w-6" />
               {hero.email}
             </a>
           </div>
@@ -85,14 +82,14 @@ export function FooterSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center transition-opacity hover:opacity-60"
+                aria-label={social.name}
               >
-                <Image
-                  src={social.icon}
-                  alt={social.name}
-                  width={24}
-                  height={24}
-                  className="h-6 w-6"
-                />
+                {social.iconName === "instagram" && (
+                  <FaInstagram className="h-6 w-6 text-white" />
+                )}
+                {social.iconName === "youtube" && (
+                  <FaYoutube className="h-6 w-6 text-white" />
+                )}
               </a>
             ))}
           </div>

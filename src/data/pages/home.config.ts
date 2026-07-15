@@ -20,11 +20,11 @@ export const homeConfig = {
     },
   },
   logos: [
-    { src: "/images/logos/canon.svg", alt: "Canon" },
-    { src: "/images/logos/youtube-logo.svg", alt: "YouTube" },
-    { src: "/images/logos/dji.svg", alt: "DJI" },
-    { src: "/images/logos/hyundai.svg", alt: "Hyundai" },
-    { src: "/images/logos/musicbed.svg", alt: "Musicbed" },
+    { src: "/images/brand/logo-canon.svg", alt: "Canon" },
+    { src: "/images/brand/logo-youtube.svg", alt: "YouTube" },
+    { src: "/images/brand/logo-dji.svg", alt: "DJI" },
+    { src: "/images/brand/logo-hyundai.svg", alt: "Hyundai" },
+    { src: "/images/brand/logo-musicbed.svg", alt: "Musicbed" },
   ],
   works: [
     {
@@ -75,8 +75,8 @@ export const homeConfig = {
     ],
   },
   socials: [
-    { name: "Instagram", url: "#", icon: "/images/logos/footer-instagram.svg" },
-    { name: "YouTube", url: "#", icon: "/images/logos/footer-youtube.svg" },
+    { name: "Instagram", url: "#", iconName: "instagram" },
+    { name: "YouTube", url: "#", iconName: "youtube" },
   ],
   footer: {
     copyright: "Copyright © 2024 Hamas Munawar.",
