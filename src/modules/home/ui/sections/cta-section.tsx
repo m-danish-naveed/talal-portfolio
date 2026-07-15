@@ -31,8 +31,8 @@ export function CtaSection() {
             poster={cta.posterImage}
             className="absolute inset-0 h-full w-full object-cover opacity-60"
           >
-            <source src={cta.videoMp4} type="video/mp4" />
-            <source src={cta.videoWebm} type="video/webm" />
+            {cta.videoMp4 && <source src={cta.videoMp4} type="video/mp4" />}
+            {cta.videoWebm && <source src={cta.videoWebm} type="video/webm" />}
           </video>
 
           {/* Dark Overlay */}

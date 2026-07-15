@@ -16,7 +16,7 @@ interface WorkCardProps {
     client: string;
     date: string;
     image: string;
-    gif: string;
+    video: string;
     link: string;
   };
   offset?: boolean;
@@ -45,13 +45,14 @@ export function WorkCard({ item, offset }: WorkCardProps) {
             className={`object-cover transition-opacity duration-300 ${isHovered ? "opacity-0" : "opacity-100"}`}
             sizes="(max-width: 768px) 100vw, 50vw"
           />
-          {/* Hover GIF */}
-          <Image
-            src={item.gif}
-            alt={`${item.title} preview`}
-            fill
-            className={`object-cover transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}
-            unoptimized
+          {/* Hover Video */}
+          <video
+            src={item.video}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className={`absolute inset-0 z-10 h-full w-full object-cover transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}
           />
         </div>
 

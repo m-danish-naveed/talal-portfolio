@@ -79,15 +79,19 @@ export function HeroSection() {
             poster={hero.showreel.posterImage}
             className="h-full w-full object-cover"
           >
-            <source src={hero.showreel.videoMp4} type="video/mp4" />
-            <source src={hero.showreel.videoWebm} type="video/webm" />
+            {hero.showreel.videoMp4 && (
+              <source src={hero.showreel.videoMp4} type="video/mp4" />
+            )}
+            {hero.showreel.videoWebm && (
+              <source src={hero.showreel.videoWebm} type="video/webm" />
+            )}
           </video>
 
           {/* Showreel Button */}
           <div className="absolute inset-0 z-50 flex items-center justify-center">
             <button
               onClick={() => setIsShowreelOpen(true)}
-              className="group relative flex items-center justify-center rounded-full bg-[#65aac8] p-5 transition-transform hover:scale-105 active:scale-95"
+              className="group relative flex items-center justify-center rounded-full bg-[#65aac8] p-3 transition-transform hover:scale-105 active:scale-95 md:p-5"
               aria-label="Play showreel"
             >
               <Image
@@ -95,14 +99,14 @@ export function HeroSection() {
                 alt="Showreel Circular Text"
                 width={148}
                 height={148}
-                className="animate-spin-slow opacity-90 transition-opacity group-hover:opacity-100"
+                className="animate-spin-slow h-24 w-24 opacity-90 transition-opacity group-hover:opacity-100 md:h-[148px] md:w-[148px]"
               />
               <Image
                 src="/images/play.svg"
                 alt="Play"
                 width={24}
                 height={24}
-                className="absolute z-10 opacity-90 transition-opacity group-hover:opacity-100"
+                className="absolute z-10 h-4 w-4 opacity-90 transition-opacity group-hover:opacity-100 md:h-6 md:w-6"
               />
             </button>
           </div>
