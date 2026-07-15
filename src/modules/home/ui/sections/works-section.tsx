@@ -2,11 +2,10 @@
 
 import { motion } from "framer-motion";
 
-import { fadeUp } from "@/lib/animations";
-
 import { homeConfig } from "@/data/pages/home.config";
 
 import { WorkCard } from "../components/work-card";
+import { homeAnimations } from "../lib/animations";
 
 export function WorksSection() {
   const { works } = homeConfig;
@@ -18,7 +17,7 @@ export function WorksSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={fadeUp}
+          variants={homeAnimations.staggerContainer}
         >
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16">
             {works.map((work, index) => (

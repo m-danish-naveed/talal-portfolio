@@ -1,17 +1,31 @@
+"use client";
 import { FaInstagram, FaYoutube } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 
 import Image from "next/image";
 import Link from "next/link";
 
+import { motion } from "framer-motion";
+
 import { homeConfig } from "@/data/pages/home.config";
+
+import { homeAnimations } from "../lib/animations";
 
 export function FooterSection() {
   const { hero, footer, socials } = homeConfig;
 
   return (
-    <footer className="w-full bg-[#121212] pt-16 pb-8">
-      <div className="mx-auto flex max-w-[90rem] flex-col gap-10 px-5 md:gap-24 md:px-10 lg:gap-[7.5rem] lg:px-16">
+    <motion.footer
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
+      variants={homeAnimations.staggerContainer}
+      className="w-full bg-[#121212] pt-16 pb-8"
+    >
+      <motion.div
+        variants={homeAnimations.fadeUp}
+        className="mx-auto flex max-w-[90rem] flex-col gap-10 px-5 md:gap-24 md:px-10 lg:gap-[7.5rem] lg:px-16"
+      >
         {/* Top Row */}
         <div className="flex flex-col items-center justify-between gap-10 md:flex-row md:gap-12">
           <div className="flex flex-col items-center justify-center gap-10 md:flex-row md:gap-12">
@@ -94,7 +108,7 @@ export function FooterSection() {
             ))}
           </div>
         </div>
-      </div>
-    </footer>
+      </motion.div>
+    </motion.footer>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaPlay } from "react-icons/fa";
 import { FiMail, FiMapPin } from "react-icons/fi";
 
@@ -16,7 +16,18 @@ import { homeAnimations } from "../lib/animations";
 
 export function HeroSection() {
   const [isShowreelOpen, setIsShowreelOpen] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const { hero } = homeConfig;
+
+  useEffect(() => {
+    // Delay video start so it syncs with the preloader finishing (3.5s)
+    const timer = setTimeout(() => {
+      if (videoRef.current) {
+        videoRef.current.play().catch(console.error);
+      }
+    }, 3500);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section className="relative min-h-screen w-full pt-[7.5rem] pb-[7.5rem]">
@@ -38,7 +49,12 @@ export function HeroSection() {
         <div className="my-12 h-px w-full bg-transparent" />
 
         {/* Meta Info */}
-        <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+        <motion.div
+          variants={homeAnimations.metaFade}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-col items-start gap-6 sm:flex-row sm:items-center"
+        >
           <div className="flex items-center gap-2">
             <FiMapPin className="h-4 w-4 opacity-60" />
             <span className="text-muted text-sm tracking-widest">
@@ -55,14 +71,19 @@ export function HeroSection() {
               {hero.email}
             </span>
           </Link>
-        </div>
+        </motion.div>
 
         <div className="my-12 h-px w-full bg-transparent" />
 
         {/* Showreel Video Block */}
-        <div className="relative z-40 mt-auto aspect-video w-full overflow-hidden rounded-lg sm:aspect-[21/9]">
+        <motion.div
+          variants={homeAnimations.videoScale}
+          initial="hidden"
+          animate="visible"
+          className="relative z-40 mt-auto aspect-video w-full overflow-hidden rounded-lg sm:aspect-[21/9]"
+        >
           <video
-            autoPlay
+            ref={videoRef}
             loop
             muted
             playsInline
@@ -94,7 +115,7 @@ export function HeroSection() {
               <FaPlay className="absolute z-10 h-4 w-4 opacity-90 transition-opacity group-hover:opacity-100 md:h-6 md:w-6" />
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <ShowreelDialog
