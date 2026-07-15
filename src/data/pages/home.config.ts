@@ -75,8 +75,8 @@ export const homeConfig = {
     ],
   },
   socials: [
-    { name: "Instagram", url: "#", icon: "/images/instagram.svg" },
-    { name: "YouTube", url: "#", icon: "/images/logos/youtube-icon.svg" },
+    { name: "Instagram", url: "#", icon: "/images/logos/footer-instagram.svg" },
+    { name: "YouTube", url: "#", icon: "/images/logos/footer-youtube.svg" },
   ],
   footer: {
     copyright: "Copyright © 2024 Hamas Munawar.",

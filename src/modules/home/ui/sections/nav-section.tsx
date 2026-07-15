@@ -35,7 +35,7 @@ export function NavSection() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-40 transition-colors duration-300 ${
+        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
           isScrolled ? "bg-background/90 backdrop-blur-md" : "bg-transparent"
         }`}
       >
@@ -60,7 +60,7 @@ export function NavSection() {
             <div className="bg-surface h-4 w-px" />
             <Link
               href="mailto:engineer.hamas.munawar@gmail.com"
-              className="rounded-full bg-white px-6 py-2 text-xs font-semibold tracking-widest text-black transition-transform hover:scale-105"
+              className="rounded-lg bg-white px-6 py-2 text-xs font-semibold tracking-widest text-black transition-transform hover:scale-105"
             >
               CONTACT
             </Link>
@@ -89,7 +89,7 @@ export function NavSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="bg-background fixed inset-0 z-30 flex flex-col items-center justify-center space-y-8 px-6"
+            className="bg-background fixed inset-0 z-50 flex flex-col items-center justify-center space-y-8 px-6"
           >
             <NavLink
               href="/"
@@ -115,7 +115,7 @@ export function NavSection() {
             </NavLink>
             <Link
               href="mailto:engineer.hamas.munawar@gmail.com"
-              className="rounded-full bg-white px-8 py-3 text-sm font-semibold tracking-widest text-black"
+              className="rounded-lg bg-white px-8 py-3 text-sm font-semibold tracking-widest text-black"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               CONTACT

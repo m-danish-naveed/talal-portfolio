@@ -36,7 +36,7 @@ export function WorkCard({ item, offset }: WorkCardProps) {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="bg-surface relative aspect-[16/9] w-full overflow-hidden">
+        <div className="bg-surface relative z-40 aspect-[16/9] w-full overflow-hidden rounded-lg">
           {/* Static Image */}
           <Image
             src={item.image}

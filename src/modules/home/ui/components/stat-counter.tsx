@@ -37,17 +37,12 @@ export function StatCounter({ value, label, suffix }: StatCounterProps) {
   }, [springValue]);
 
   return (
-    <div
-      ref={ref}
-      className="flex flex-col items-center justify-center space-y-2"
-    >
-      <div className="flex items-end space-x-1">
-        <span className="font-mono text-4xl sm:text-5xl">{displayValue}</span>
-        <span className="font-mono text-4xl sm:text-5xl">{suffix}</span>
+    <div ref={ref} className="flex items-center justify-center gap-4 sm:gap-6">
+      <div className="flex items-end text-xl leading-[1.1] font-medium sm:text-4xl">
+        <span>{displayValue}</span>
+        <span>{suffix}</span>
       </div>
-      <span className="text-muted text-xs tracking-widest uppercase">
-        {label}
-      </span>
+      <span className="text-base text-white/50 sm:text-lg">{label}</span>
     </div>
   );
 }

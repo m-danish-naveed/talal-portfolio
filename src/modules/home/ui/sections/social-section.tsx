@@ -1,6 +1,6 @@
-import Image from "next/image";
+import { Fragment } from "react";
 
-import { NavLink } from "@/lib/components/nav-link";
+import Image from "next/image";
 
 import { homeConfig } from "@/data/pages/home.config";
 
@@ -9,23 +9,28 @@ export function SocialSection() {
 
   return (
     <section className="w-full py-16">
-      <div className="mx-auto flex max-w-7xl items-center justify-center gap-8 px-6 lg:px-12">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-5 px-6 md:flex-row md:gap-10 lg:px-12">
         {socials.map((social, index) => (
-          <div key={index} className="flex items-center gap-8">
-            <NavLink href={social.url} isExternal className="gap-3">
+          <Fragment key={index}>
+            <a
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 transition-opacity hover:opacity-60"
+            >
               <Image
                 src={social.icon}
                 alt={social.name}
-                width={20}
-                height={20}
-                className="opacity-70 invert transition-opacity hover:opacity-100"
+                width={24}
+                height={24}
+                className="h-6 w-6 flex-none"
               />
-              <span>{social.name}</span>
-            </NavLink>
+              <span className="text-base font-medium">{social.name}</span>
+            </a>
             {index < socials.length - 1 && (
-              <div className="bg-surface h-px w-16" />
+              <div className="h-px w-12 bg-white/10" />
             )}
-          </div>
+          </Fragment>
         ))}
       </div>
     </section>

@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, Space_Mono } from "next/font/google";
+import { Inconsolata, Space_Mono } from "next/font/google";
 
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const inconsolata = Inconsolata({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 const spaceMono = Space_Mono({
   weight: ["400", "700"],
   subsets: ["latin"],
@@ -22,9 +25,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceMono.variable} dark`}>
+    <html
+      lang="en"
+      className={`${inconsolata.variable} ${spaceMono.variable} dark`}
+    >
       <body className="bg-background text-foreground flex min-h-screen flex-col overflow-x-hidden">
-        {children}
+        <div
+          className="pointer-events-none fixed inset-0 z-0 h-full w-full opacity-20"
+          style={{
+            backgroundImage: "url('/images/noise.gif')",
+            backgroundRepeat: "repeat",
+          }}
+        />
+        <div className="relative z-10 flex min-h-screen flex-col">
+          {children}
+        </div>
       </body>
     </html>
   );

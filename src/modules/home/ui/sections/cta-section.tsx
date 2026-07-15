@@ -20,7 +20,7 @@ export function CtaSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="bg-surface relative flex min-h-[600px] flex-col items-center justify-center overflow-hidden rounded-sm p-8 text-center sm:p-16"
+          className="bg-surface relative z-40 flex min-h-[600px] flex-col items-center justify-center overflow-hidden p-8 text-center sm:p-16"
         >
           {/* Background Video */}
           <video
@@ -39,32 +39,57 @@ export function CtaSection() {
           <div className="absolute inset-0 bg-black/40" />
 
           {/* Content */}
-          <div className="relative z-10 flex h-full w-full max-w-4xl flex-col items-center justify-between gap-16 py-12">
-            {/* Tag / Card visual (mocking the polaroid visual conceptually) */}
-            <div className="relative flex aspect-[3/4] w-64 flex-col items-center justify-between border border-white/10 bg-white/5 p-4 backdrop-blur-md sm:w-80">
-              <span className="text-xs tracking-widest text-white/70 uppercase">
+          <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-8 py-20">
+            {/* Tag */}
+            <div className="mb-12 flex flex-col items-center justify-center gap-6">
+              <span className="text-base font-medium tracking-widest text-white/70 uppercase">
                 Let&apos;s Chat
               </span>
-              <div className="mt-4 w-full flex-1 bg-black/20" />
-              <Link
-                href={`mailto:${hero.email}`}
-                className="mt-6 flex w-full items-center justify-between bg-white px-6 py-4 text-xs font-bold tracking-widest text-black transition-colors hover:bg-white/90"
-              >
-                <span>CONTACT</span>
-                <span>→</span>
-              </Link>
+              <div className="h-8 w-px bg-white/10" />
             </div>
 
+            <div className="mb-24 h-12" />
+
             {/* Stats */}
-            <div className="grid w-full grid-cols-1 gap-12 sm:grid-cols-3">
+            <div className="mb-24 flex w-full flex-col items-center justify-center gap-6 sm:flex-row sm:gap-12">
               {cta.stats.map((stat, i) => (
-                <StatCounter
+                <div
                   key={i}
-                  value={stat.value}
-                  label={stat.label}
-                  suffix={stat.suffix}
-                />
+                  className="flex flex-col items-center gap-6 sm:flex-row sm:gap-12"
+                >
+                  <StatCounter
+                    value={stat.value}
+                    label={stat.label}
+                    suffix={stat.suffix}
+                  />
+                  {i < cta.stats.length - 1 && (
+                    <div className="h-px w-12 bg-white/10 sm:h-px sm:w-12" />
+                  )}
+                </div>
               ))}
+            </div>
+
+            {/* Button */}
+            <div className="flex justify-center">
+              <Link
+                href="/contact"
+                className="group flex items-center justify-center gap-4 rounded-lg bg-white px-8 py-4 text-sm font-medium text-black transition-transform hover:scale-105 active:scale-95"
+              >
+                <span>Contact</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="42"
+                  viewBox="0 0 42 14"
+                  fill="none"
+                  className="transition-transform group-hover:translate-x-1"
+                >
+                  <path
+                    d="M40.5 7C40.5 7 23.9315 7 0.5 7M40.5 7L34.5 13M40.5 7L34.5 0.999999"
+                    stroke="currentColor"
+                    strokeLinecap="square"
+                  />
+                </svg>
+              </Link>
             </div>
           </div>
         </motion.div>

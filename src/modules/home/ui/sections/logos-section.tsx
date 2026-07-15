@@ -6,24 +6,24 @@ export function LogosSection() {
   const { logos } = homeConfig;
 
   return (
-    <section className="w-full py-16">
+    <section className="w-full overflow-hidden py-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="flex flex-wrap items-center justify-center gap-8 md:justify-between md:gap-4">
+        <div className="flex flex-wrap items-center justify-center gap-10 md:gap-6">
           {logos.map((logo, index) => (
             <div
               key={index}
-              className="flex items-center gap-8 md:gap-12 lg:gap-16"
+              className="flex items-center justify-center md:gap-12"
             >
               <Image
                 src={logo.src}
                 alt={logo.alt}
-                width={100}
-                height={32}
-                className="h-6 w-auto object-contain opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0 sm:h-8"
+                width={128}
+                height={20}
+                className="h-4 w-auto max-w-[6rem] flex-none object-contain opacity-70 transition-opacity hover:opacity-100 sm:h-5 sm:max-w-[8rem]"
               />
-              {/* Add divider except for the last item */}
+              {/* Add horizontal divider except for the last item */}
               {index < logos.length - 1 && (
-                <div className="bg-surface hidden h-8 w-px md:block" />
+                <div className="hidden h-px w-12 bg-white/10 md:block" />
               )}
             </div>
           ))}
