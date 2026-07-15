@@ -17,8 +17,8 @@ export function HeroSection() {
   const { hero } = homeConfig;
 
   return (
-    <section className="relative min-h-screen w-full pt-32 pb-20">
-      <div className="mx-auto flex max-w-7xl flex-col px-6 lg:px-12">
+    <section className="relative min-h-screen w-full pt-[7.5rem] pb-[7.5rem]">
+      <div className="mx-auto flex max-w-7xl flex-col px-5 md:px-10 lg:px-16">
         {/* Animated Headline */}
         <motion.h1
           variants={homeAnimations.heroStagger}

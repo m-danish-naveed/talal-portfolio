@@ -13,7 +13,7 @@ export function WorksSection() {
 
   return (
     <section id="work" className="w-full py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-12">
+      <div className="mx-auto max-w-7xl px-5 md:px-10 lg:px-16">
         <motion.div
           initial="hidden"
           whileInView="visible"

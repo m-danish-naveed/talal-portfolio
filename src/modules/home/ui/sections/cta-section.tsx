@@ -14,13 +14,13 @@ export function CtaSection() {
 
   return (
     <section className="w-full py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-12">
+      <div className="mx-auto max-w-7xl px-5 md:px-10 lg:px-16">
         <motion.div
           variants={homeAnimations.ctaSlide}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="bg-surface relative z-40 flex min-h-[600px] flex-col items-center justify-center overflow-hidden p-8 text-center sm:p-16"
+          className="bg-surface relative z-40 flex min-h-[600px] flex-col items-center justify-center overflow-hidden p-6 text-center md:p-10 lg:p-20"
         >
           {/* Background Video */}
           <video

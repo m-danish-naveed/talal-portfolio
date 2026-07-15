@@ -39,7 +39,7 @@ export function NavSection() {
           isScrolled ? "bg-background/90 backdrop-blur-md" : "bg-transparent"
         }`}
       >
-        <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-6 lg:px-12">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 md:px-10 lg:px-16">
           <Link href="/" className="z-50 shrink-0">
             <Image
               src="/images/logo.svg"
