@@ -23,7 +23,7 @@ export function NavLink({
         target="_blank"
         rel="noopener noreferrer"
         className={cn(
-          "text-foreground/80 hover:text-foreground flex items-center gap-1.5 text-xs tracking-[0.1em] uppercase transition-colors",
+          "text-foreground/80 hover:text-foreground flex items-center gap-1.5 text-base font-medium uppercase transition-colors",
           className
         )}
         {...props}
@@ -51,7 +51,7 @@ export function NavLink({
     <Link
       href={href}
       className={cn(
-        "text-foreground/80 hover:text-foreground text-xs tracking-[0.1em] uppercase transition-colors",
+        "text-foreground/80 hover:text-foreground text-base font-medium uppercase transition-colors",
         className
       )}
       {...props}

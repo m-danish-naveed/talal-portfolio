@@ -38,11 +38,11 @@ export function StatCounter({ value, label, suffix }: StatCounterProps) {
 
   return (
     <div ref={ref} className="flex items-center justify-center gap-4 sm:gap-6">
-      <div className="flex items-end text-xl leading-[1.1] font-medium sm:text-4xl">
+      <div className="flex items-end text-xl leading-[1.1] font-medium md:text-[2.5rem]">
         <span>{displayValue}</span>
         <span>{suffix}</span>
       </div>
-      <span className="text-base text-white/50 sm:text-lg">{label}</span>
+      <span className="text-base text-white/50">{label}</span>
     </div>
   );
 }

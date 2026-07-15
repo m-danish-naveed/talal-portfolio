@@ -35,7 +35,7 @@ export function NavSection() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        className={`fixed inset-x-0 top-0 z-[1000] transition-colors duration-300 ${
           isScrolled ? "bg-background/90 backdrop-blur-md" : "bg-transparent"
         }`}
       >
@@ -89,7 +89,7 @@ export function NavSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="bg-background fixed inset-0 z-50 flex flex-col items-center justify-center space-y-8 px-6"
+            className="bg-background fixed inset-0 z-[999] flex flex-col items-center justify-center space-y-8 px-6"
           >
             <NavLink
               href="/"

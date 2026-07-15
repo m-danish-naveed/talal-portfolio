@@ -55,8 +55,10 @@ export function WorkCard({ item, offset }: WorkCardProps) {
           />
         </div>
 
-        <div className="mt-4 flex flex-col space-y-3">
-          <h3 className="text-sm font-bold tracking-wide">{item.title}</h3>
+        <div className="mt-4 flex flex-col space-y-2">
+          <h3 className="text-base leading-[1.4] font-medium tracking-normal md:text-xl">
+            {item.title}
+          </h3>
           <div className="bg-surface h-[1px] w-full" />
           <div className="text-muted text-xs">{item.client}</div>
           <div className="bg-surface h-[1px] w-full" />
