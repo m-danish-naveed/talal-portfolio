@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+@theme {
+  --color-background: #0e0e0e;
+  --color-foreground: #f0f0f0;
+  --color-surface: #1e1e1e;
+  --color-muted: #888888;
+  --font-mono: var(--font-space-mono);
+  --font-sans: var(--font-inter);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-white selection:text-black;
+  }
+}
