@@ -8,7 +8,7 @@ export function FooterSection() {
 
   return (
     <footer className="w-full bg-[#121212] pt-16 pb-8">
-      <div className="mx-auto flex max-w-7xl flex-col gap-10 px-5 md:gap-24 md:px-10 lg:gap-[7.5rem] lg:px-16">
+      <div className="mx-auto flex max-w-[90rem] flex-col gap-10 px-5 md:gap-24 md:px-10 lg:gap-[7.5rem] lg:px-16">
         {/* Top Row */}
         <div className="flex flex-col items-center justify-between gap-10 md:flex-row md:gap-12">
           <div className="flex flex-col items-center justify-center gap-10 md:flex-row md:gap-12">

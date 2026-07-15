@@ -10,11 +10,11 @@ import { StatCounter } from "../components/stat-counter";
 import { homeAnimations } from "../lib/animations";
 
 export function CtaSection() {
-  const { cta, hero } = homeConfig;
+  const { cta } = homeConfig;
 
   return (
     <section className="w-full py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-5 md:px-10 lg:px-16">
+      <div className="mx-auto max-w-[90rem] px-5 md:px-10 lg:px-16">
         <motion.div
           variants={homeAnimations.ctaSlide}
           initial="hidden"

@@ -18,13 +18,13 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen w-full pt-[7.5rem] pb-[7.5rem]">
-      <div className="mx-auto flex max-w-7xl flex-col px-5 md:px-10 lg:px-16">
+      <div className="mx-auto flex max-w-[90rem] flex-col px-5 md:px-10 lg:px-16">
         {/* Animated Headline */}
         <motion.h1
           variants={homeAnimations.heroStagger}
           initial="hidden"
           animate="visible"
-          className="max-w-[960px] font-mono text-2xl leading-[1.2] font-medium sm:text-[2rem] md:text-5xl"
+          className="max-w-[960px] text-2xl leading-[1.2] font-medium tracking-normal md:text-[2rem] lg:text-5xl"
         >
           {hero.headline.map((line, i) => (
             <motion.span key={i} variants={homeAnimations.heroText}>
@@ -87,21 +87,22 @@ export function HeroSection() {
           <div className="absolute inset-0 z-50 flex items-center justify-center">
             <button
               onClick={() => setIsShowreelOpen(true)}
-              className="group relative flex h-[7.5rem] w-[7.5rem] items-center justify-center rounded-full bg-[#65aac8] transition-transform hover:scale-105 active:scale-95"
+              className="group relative flex items-center justify-center rounded-full bg-[#65aac8] p-5 transition-transform hover:scale-105 active:scale-95"
               aria-label="Play showreel"
             >
               <Image
                 src="/images/showreel-icon.svg"
                 alt="Showreel Circular Text"
-                fill
-                className="animate-spin-slow object-contain p-4 opacity-90 transition-opacity group-hover:opacity-100"
+                width={148}
+                height={148}
+                className="animate-spin-slow opacity-90 transition-opacity group-hover:opacity-100"
               />
               <Image
                 src="/images/play.svg"
                 alt="Play"
                 width={24}
                 height={24}
-                className="relative z-10 opacity-90 transition-opacity group-hover:opacity-100"
+                className="absolute z-10 opacity-90 transition-opacity group-hover:opacity-100"
               />
             </button>
           </div>

@@ -11,7 +11,7 @@
     "format": "prettier --cache --check \"src/**/*.{ts,tsx,js,jsx,json,css,md}\"",
     "format:fix": "prettier --cache --write \"src/**/*.{ts,tsx,js,jsx,json,css,md}\"",
     "prepare": "husky",
-    "validate": "bun\nrun lint && bun\nrun format && bun\nrun build"
+    "validate": "bun run lint && bun run format && bun run build"
   },
   "dependencies": {
     "clsx": "^2.1.1",

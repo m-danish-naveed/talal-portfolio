@@ -7,7 +7,7 @@ export function LogosSection() {
 
   return (
     <section className="w-full overflow-hidden py-12 md:py-20">
-      <div className="mx-auto max-w-7xl px-5 md:px-10 lg:px-16">
+      <div className="mx-auto max-w-[90rem] px-5 md:px-10 lg:px-16">
         <div className="flex flex-wrap items-center justify-center gap-10 md:gap-6">
           {logos.map((logo, index) => (
             <div
