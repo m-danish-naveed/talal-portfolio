@@ -1,0 +1,51 @@
+# Dependencies
+node_modules/
+.pnpm/
+
+# Build outputs
+.next/
+out/
+dist/
+build/
+.turbo/
+
+# Cache
+.cache/
+.eslintcache
+.prettiercache
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lockb
+bun.lock
+*.lock
+
+# Generated
+*.min.js
+*.min.css
+*.map
+*.d.ts
+
+# Static assets
+public/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Env
+.env*
+!.env.example
+
+# Coverage / logs
+coverage/
+*.log
+npm-debug.log*
+
+# TypeScript
+*.tsbuildinfo
+
