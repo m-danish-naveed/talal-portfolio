@@ -7,7 +7,7 @@ import Link from "next/link";
 
 import { motion } from "framer-motion";
 
-import { homeAnimations } from "../lib/animations";
+import { siteAnimations } from "@/lib/animations";
 
 interface WorkCardProps {
   item: {
@@ -27,7 +27,7 @@ export function WorkCard({ item, offset }: WorkCardProps) {
 
   return (
     <motion.div
-      variants={homeAnimations.cardEntry}
+      variants={siteAnimations.cardEntry}
       className={`w-full ${offset ? "lg:translate-y-16" : ""}`}
     >
       <Link

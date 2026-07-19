@@ -5,8 +5,6 @@ export const homeConfig = {
       "A world-renowned filmmaker that inspired a generation of content creators from all around the world.",
   },
   hero: {
-    location: "Dubai, UAE",
-    email: "engineer.hamas.munawar@gmail.com",
     headline: [
       "Hamas Munawar is a world-renowned filmmaker",
       "that inspired a generation of content",
@@ -73,12 +71,5 @@ export const homeConfig = {
       { value: 1.6, label: "Followers", suffix: "M" },
       { value: 64, label: "Views", suffix: "M" },
     ],
-  },
-  socials: [
-    { name: "Instagram", url: "#", iconName: "instagram" },
-    { name: "YouTube", url: "#", iconName: "youtube" },
-  ],
-  footer: {
-    copyright: "Copyright © 2024 Hamas Munawar.",
   },
 };

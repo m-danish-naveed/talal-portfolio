@@ -3,9 +3,9 @@ import Image from "next/image";
 
 import { motion } from "framer-motion";
 
-import { homeConfig } from "@/data/pages/home.config";
+import { siteAnimations } from "@/lib/animations";
 
-import { homeAnimations } from "../lib/animations";
+import { homeConfig } from "@/data/pages/home.config";
 
 export function LogosSection() {
   const { logos } = homeConfig;
@@ -18,12 +18,12 @@ export function LogosSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={homeAnimations.staggerContainer}
+          variants={siteAnimations.staggerContainer(0)}
         >
           {logos.map((logo, index) => (
             <motion.div
               key={index}
-              variants={homeAnimations.fadeUp}
+              variants={siteAnimations.fadeUp(0)}
               className="flex items-center justify-center md:gap-12"
             >
               <Image

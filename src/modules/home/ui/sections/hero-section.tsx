@@ -9,18 +9,20 @@ import Link from "next/link";
 
 import { motion } from "framer-motion";
 
+import { siteAnimations } from "@/lib/animations";
 import { useEntryDelay } from "@/lib/hooks/use-entry-delay";
 
 import { homeConfig } from "@/data/pages/home.config";
+import { siteConfig } from "@/data/site.config";
 
 import { ShowreelDialog } from "../components/showreel-dialog";
-import { homeAnimations } from "../lib/animations";
 
 export function HeroSection() {
   const [isShowreelOpen, setIsShowreelOpen] = useState(false);
   const entryDelay = useEntryDelay();
   const videoRef = useRef<HTMLVideoElement>(null);
   const { hero } = homeConfig;
+  const { contact } = siteConfig;
 
   useEffect(() => {
     if (videoRef.current) {
@@ -39,13 +41,13 @@ export function HeroSection() {
       <div className="mx-auto flex max-w-[90rem] flex-col px-5 md:px-10 lg:px-16">
         {/* Animated Headline */}
         <motion.h1
-          variants={homeAnimations.heroStagger(entryDelay)}
+          variants={siteAnimations.heroStagger(entryDelay)}
           initial="hidden"
           animate="visible"
           className="max-w-[960px] text-2xl leading-[1.2] font-medium tracking-normal md:text-[2rem] lg:text-5xl"
         >
           {hero.headline.map((line, i) => (
-            <motion.span key={i} variants={homeAnimations.heroText}>
+            <motion.span key={i} variants={siteAnimations.heroText}>
               {line}{" "}
             </motion.span>
           ))}
@@ -55,7 +57,7 @@ export function HeroSection() {
 
         {/* Meta Info */}
         <motion.div
-          variants={homeAnimations.metaFade(entryDelay)}
+          variants={siteAnimations.metaFade(entryDelay)}
           initial="hidden"
           animate="visible"
           className="flex flex-col items-start gap-6 sm:flex-row sm:items-center"
@@ -63,17 +65,17 @@ export function HeroSection() {
           <div className="flex items-center gap-2">
             <FiMapPin className="h-4 w-4 opacity-60" />
             <span className="text-muted text-sm tracking-widest">
-              {hero.location}
+              {contact.location}
             </span>
           </div>
           <div className="bg-surface hidden h-px w-16 sm:block" />
           <Link
-            href={`mailto:${hero.email}`}
+            href={`mailto:${contact.email}`}
             className="group flex items-center gap-2 transition-opacity hover:opacity-80"
           >
             <FiMail className="h-4 w-4 opacity-60 transition-opacity group-hover:opacity-100" />
             <span className="text-muted group-hover:text-foreground text-sm tracking-widest">
-              {hero.email}
+              {contact.email}
             </span>
           </Link>
         </motion.div>
@@ -82,7 +84,7 @@ export function HeroSection() {
 
         {/* Showreel Video Block */}
         <motion.div
-          variants={homeAnimations.videoScale(entryDelay)}
+          variants={siteAnimations.videoScale(entryDelay)}
           initial="hidden"
           animate="visible"
           className="relative z-40 mt-auto aspect-video w-full overflow-hidden rounded-lg sm:aspect-[21/9]"

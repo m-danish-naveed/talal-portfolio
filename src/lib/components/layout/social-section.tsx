@@ -5,26 +5,26 @@ import { FaInstagram, FaYoutube } from "react-icons/fa";
 
 import { motion } from "framer-motion";
 
-import { homeConfig } from "@/data/pages/home.config";
+import { siteAnimations } from "@/lib/animations";
 
-import { homeAnimations } from "../lib/animations";
+import { siteConfig } from "@/data/site.config";
 
 export function SocialSection() {
-  const { socials } = homeConfig;
+  const { socials } = siteConfig;
 
   return (
     <motion.section
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
-      variants={homeAnimations.staggerContainer}
+      variants={siteAnimations.staggerContainer(0)}
       className="w-full py-16"
     >
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-5 px-6 md:flex-row md:gap-10 lg:px-12">
         {socials.map((social, index) => (
           <Fragment key={index}>
             <motion.a
-              variants={homeAnimations.fadeUp}
+              variants={siteAnimations.fadeUp(0)}
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
@@ -40,7 +40,7 @@ export function SocialSection() {
             </motion.a>
             {index < socials.length - 1 && (
               <motion.div
-                variants={homeAnimations.fadeUp}
+                variants={siteAnimations.fadeUp(0)}
                 className="h-px w-12 bg-white/10"
               />
             )}

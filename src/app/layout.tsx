@@ -2,12 +2,11 @@ import type { Metadata } from "next";
 import { Inconsolata, Space_Mono } from "next/font/google";
 
 import { GlobalProvider } from "@/lib/components/global-provider";
+import { FooterSection } from "@/lib/components/layout/footer-section";
+import { NavSection } from "@/lib/components/layout/nav-section";
+import { SocialSection } from "@/lib/components/layout/social-section";
 import { Preloader } from "@/lib/components/preloader";
 import { TransitionProvider } from "@/lib/components/transition-provider";
-
-import { FooterSection } from "@/modules/home/ui/sections/footer-section";
-import { NavSection } from "@/modules/home/ui/sections/nav-section";
-import { SocialSection } from "@/modules/home/ui/sections/social-section";
 
 import "./globals.css";
 

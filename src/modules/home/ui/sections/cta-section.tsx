@@ -4,12 +4,12 @@ import { FiArrowRight } from "react-icons/fi";
 
 import { motion } from "framer-motion";
 
+import { siteAnimations } from "@/lib/animations";
 import { TransitionLink } from "@/lib/components/transition-link";
 
 import { homeConfig } from "@/data/pages/home.config";
 
 import { StatCounter } from "../components/stat-counter";
-import { homeAnimations } from "../lib/animations";
 
 export function CtaSection() {
   const { cta } = homeConfig;
@@ -18,7 +18,7 @@ export function CtaSection() {
     <section className="w-full py-24 sm:py-32">
       <div className="mx-auto max-w-[90rem] px-5 md:px-10 lg:px-16">
         <motion.div
-          variants={homeAnimations.ctaSlide}
+          variants={siteAnimations.staggerContainerFast}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}

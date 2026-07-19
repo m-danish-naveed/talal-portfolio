@@ -8,10 +8,14 @@ import { usePathname } from "next/navigation";
 
 import { AnimatePresence, motion } from "framer-motion";
 
+import { siteAnimations } from "@/lib/animations";
 import { NavLink } from "@/lib/components/nav-link";
 import { TransitionLink } from "@/lib/components/transition-link";
 
+import { siteConfig } from "@/data/site.config";
+
 export function NavSection() {
+  const { socials } = siteConfig;
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -105,16 +109,9 @@ export function NavSection() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
+            variants={siteAnimations.staggerContainerFast}
             className="bg-background fixed inset-0 z-[999] flex flex-col items-center justify-center space-y-8 px-6"
           >
-            <TransitionLink
-              href="/"
-              className={`text-base font-medium tracking-wide uppercase transition-opacity hover:opacity-60 ${pathname === "/" ? "text-white opacity-100" : "text-white/60"}`}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Home
-            </TransitionLink>
             <TransitionLink
               href="/#work"
               className={`text-base font-medium tracking-wide uppercase transition-opacity hover:opacity-60 ${pathname === "/#work" ? "text-white opacity-100" : "text-white/60"}`}

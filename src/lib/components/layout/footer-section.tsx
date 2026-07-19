@@ -6,25 +6,26 @@ import Image from "next/image";
 
 import { motion } from "framer-motion";
 
+import { siteAnimations } from "@/lib/animations";
 import { TransitionLink } from "@/lib/components/transition-link";
 
 import { homeConfig } from "@/data/pages/home.config";
-
-import { homeAnimations } from "../lib/animations";
+import { siteConfig } from "@/data/site.config";
 
 export function FooterSection() {
-  const { hero, footer, socials } = homeConfig;
+  const { hero } = homeConfig;
+  const { footer, socials, contact } = siteConfig;
 
   return (
     <motion.footer
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
-      variants={homeAnimations.staggerContainer}
+      variants={siteAnimations.staggerContainer(0)}
       className="w-full bg-[#121212] pt-16 pb-8"
     >
       <motion.div
-        variants={homeAnimations.fadeUp}
+        variants={siteAnimations.fadeUp(0)}
         className="mx-auto flex max-w-[90rem] flex-col gap-10 px-5 md:gap-24 md:px-10 lg:gap-[7.5rem] lg:px-16"
       >
         {/* Top Row */}
@@ -44,11 +45,11 @@ export function FooterSection() {
             </TransitionLink>
             <div className="h-px w-12 bg-white/10" />
             <a
-              href={`mailto:${hero.email}`}
+              href={`mailto:${contact.email}`}
               className="flex items-center gap-2 text-base text-white transition-opacity hover:opacity-60"
             >
               <FiMail className="h-6 w-6" />
-              {hero.email}
+              {contact.email}
             </a>
           </div>
 
