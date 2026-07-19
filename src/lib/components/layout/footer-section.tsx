@@ -61,7 +61,7 @@ export function FooterSection() {
               Home
             </TransitionLink>
             <TransitionLink
-              href="/#work"
+              href="/work"
               className="text-base font-medium text-white uppercase transition-opacity hover:opacity-60"
             >
               Work

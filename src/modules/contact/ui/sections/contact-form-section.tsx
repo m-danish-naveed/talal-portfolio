@@ -2,9 +2,6 @@
 
 import { useState } from "react";
 
-import { motion } from "framer-motion";
-
-import { siteAnimations } from "@/lib/animations";
 import { useEntryDelay } from "@/lib/hooks/use-entry-delay";
 
 import { contactConfig } from "@/data/pages/contact.config";
@@ -31,12 +28,7 @@ export function ContactFormSection() {
   return (
     <section className="w-full pb-20 md:pb-32">
       <div className="mx-auto flex max-w-[90rem] flex-col items-center justify-center px-5 md:px-10 lg:px-16">
-        <motion.div
-          variants={siteAnimations.fadeUp(entryDelay + 0.4)}
-          initial="hidden"
-          animate="visible"
-          className="w-full max-w-[800px]"
-        >
+        <div className="w-full max-w-[800px]">
           {isSuccess ? (
             <div className="flex w-full items-center justify-center rounded-lg bg-white/5 p-8 text-center text-lg text-white">
               {form.successMessage}
@@ -132,7 +124,7 @@ export function ContactFormSection() {
               </div>
             </form>
           )}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

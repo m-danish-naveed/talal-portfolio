@@ -69,9 +69,9 @@ export function NavSection() {
               Home
             </NavLink>
             <NavLink
-              href="/#work"
+              href="/work"
               className={
-                pathname === "/#work"
+                pathname === "/work"
                   ? "text-white opacity-100"
                   : "text-white/80"
               }
@@ -113,8 +113,8 @@ export function NavSection() {
             className="bg-background fixed inset-0 z-[999] flex flex-col items-center justify-center space-y-8 px-6"
           >
             <TransitionLink
-              href="/#work"
-              className={`text-base font-medium tracking-wide uppercase transition-opacity hover:opacity-60 ${pathname === "/#work" ? "text-white opacity-100" : "text-white/60"}`}
+              href="/work"
+              className={`text-base font-medium tracking-wide uppercase transition-opacity hover:opacity-60 ${pathname === "/work" ? "text-white opacity-100" : "text-white/60"}`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Work

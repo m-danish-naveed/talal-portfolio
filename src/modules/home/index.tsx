@@ -1,7 +1,8 @@
+import { WorksSection } from "@/lib/components/works/works-section";
+
 import { CtaSection } from "./ui/sections/cta-section";
 import { HeroSection } from "./ui/sections/hero-section";
 import { LogosSection } from "./ui/sections/logos-section";
-import { WorksSection } from "./ui/sections/works-section";
 
 export function HomePage() {
   return (

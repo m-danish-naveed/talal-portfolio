@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 
 import { siteAnimations } from "@/lib/animations";
 
-import { homeConfig } from "@/data/pages/home.config";
+import { siteConfig } from "@/data/site.config";
 
-import { WorkCard } from "../components/work-card";
+import { WorkCard } from "./work-card";
 
 export function WorksSection() {
-  const { works } = homeConfig;
+  const { works } = siteConfig;
 
   return (
     <section id="work" className="w-full py-24 sm:py-32">

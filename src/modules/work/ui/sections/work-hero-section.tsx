@@ -2,10 +2,10 @@
 
 import { useEntryDelay } from "@/lib/hooks/use-entry-delay";
 
-import { contactConfig } from "@/data/pages/contact.config";
+import { workConfig } from "@/data/pages/work.config";
 
-export function ContactHeroSection() {
-  const { hero } = contactConfig;
+export function WorkHeroSection() {
+  const { hero } = workConfig;
   const entryDelay = useEntryDelay();
 
   return (
