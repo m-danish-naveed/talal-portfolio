@@ -51,7 +51,7 @@ export function NavSection() {
               alt="Hamas Logo"
               width={100}
               height={28}
-              className="h-6 w-auto transition-opacity hover:opacity-60 md:h-7"
+              className="h-6 w-[85px] transition-opacity hover:opacity-60 md:h-7 md:w-[100px]"
             />
           </TransitionLink>
 

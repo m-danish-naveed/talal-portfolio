@@ -31,7 +31,7 @@ export function LogosSection() {
                 alt={logo.alt}
                 width={128}
                 height={20}
-                className="h-4 w-auto max-w-[6rem] flex-none object-contain opacity-70 transition-opacity hover:opacity-100 sm:h-5 sm:max-w-[8rem]"
+                className="h-4 w-[102px] flex-none object-contain opacity-70 transition-opacity hover:opacity-100 sm:h-5 sm:w-[128px]"
               />
               {/* Add horizontal divider except for the last item */}
               {index < logos.length - 1 && (

@@ -38,7 +38,7 @@ export function FooterSection() {
                 alt="Hamas Logo"
                 width={80}
                 height={22}
-                className="h-5 w-auto"
+                className="h-5 w-[73px]"
               />
             </TransitionLink>
             <div className="h-px w-12 bg-white/10" />

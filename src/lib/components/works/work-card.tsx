@@ -20,9 +20,10 @@ interface WorkCardProps {
     link: string;
   };
   offset?: boolean;
+  priority?: boolean;
 }
 
-export function WorkCard({ item, offset }: WorkCardProps) {
+export function WorkCard({ item, offset, priority }: WorkCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -44,6 +45,7 @@ export function WorkCard({ item, offset }: WorkCardProps) {
             fill
             className={`object-cover transition-opacity duration-300 ${isHovered ? "opacity-0" : "opacity-100"}`}
             sizes="(max-width: 768px) 100vw, 50vw"
+            priority={priority}
           />
           {/* Hover Video */}
           <video
