@@ -1,12 +1,9 @@
 "use client";
 
-import { useEntryDelay } from "@/lib/hooks/use-entry-delay";
-
 import { workConfig } from "@/data/pages/work.config";
 
 export function WorkHeroSection() {
   const { hero } = workConfig;
-  const entryDelay = useEntryDelay();
 
   return (
     <section className="w-full pt-40 pb-20 md:pt-52 md:pb-32">

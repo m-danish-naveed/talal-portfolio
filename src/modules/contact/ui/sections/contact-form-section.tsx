@@ -2,13 +2,10 @@
 
 import { useState } from "react";
 
-import { useEntryDelay } from "@/lib/hooks/use-entry-delay";
-
 import { contactConfig } from "@/data/pages/contact.config";
 
 export function ContactFormSection() {
   const { form } = contactConfig;
-  const entryDelay = useEntryDelay();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);

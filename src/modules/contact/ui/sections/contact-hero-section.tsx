@@ -1,12 +1,9 @@
 "use client";
 
-import { useEntryDelay } from "@/lib/hooks/use-entry-delay";
-
 import { contactConfig } from "@/data/pages/contact.config";
 
 export function ContactHeroSection() {
   const { hero } = contactConfig;
-  const entryDelay = useEntryDelay();
 
   return (
     <section className="w-full pt-40 pb-20 md:pt-52 md:pb-32">

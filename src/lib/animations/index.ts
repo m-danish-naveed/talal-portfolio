@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const siteAnimations: Record<string, any> = {
   // Container stagger
   staggerContainer: (delay: number = 0) => ({

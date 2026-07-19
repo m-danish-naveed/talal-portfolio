@@ -9,11 +9,9 @@ import { motion } from "framer-motion";
 import { siteAnimations } from "@/lib/animations";
 import { TransitionLink } from "@/lib/components/transition-link";
 
-import { homeConfig } from "@/data/pages/home.config";
 import { siteConfig } from "@/data/site.config";
 
 export function FooterSection() {
-  const { hero } = homeConfig;
   const { footer, socials, contact } = siteConfig;
 
   return (

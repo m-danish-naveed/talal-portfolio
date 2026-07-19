@@ -12,10 +12,7 @@ import { siteAnimations } from "@/lib/animations";
 import { NavLink } from "@/lib/components/nav-link";
 import { TransitionLink } from "@/lib/components/transition-link";
 
-import { siteConfig } from "@/data/site.config";
-
 export function NavSection() {
-  const { socials } = siteConfig;
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
