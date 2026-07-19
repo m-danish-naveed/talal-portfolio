@@ -10,7 +10,10 @@ import {
   useTransform,
 } from "framer-motion";
 
+import { useGlobalState } from "./global-provider";
+
 export function Preloader() {
+  const { isFirstLoadComplete, setIsFirstLoadComplete } = useGlobalState();
   const [isLoading, setIsLoading] = useState(true);
   const progress = useMotionValue(0);
   const [displayProgress, setDisplayProgress] = useState(0);
@@ -19,21 +22,30 @@ export function Preloader() {
   // Fills from left to right: right inset starts at 100%, goes to 0%
   const clipPath = useTransform(
     progress,
-    (val) => `inset(0 ${100 - val}% 0 0)`
+    [0, 100],
+    ["inset(-5% 100% -5% -5%)", "inset(-5% -5% -5% -5%)"]
   );
 
   useEffect(() => {
+    if (isFirstLoadComplete) {
+      const timer = setTimeout(() => setIsLoading(false), 0);
+      return () => clearTimeout(timer);
+    }
+
     if (isLoading) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
+      setIsFirstLoadComplete(true);
     }
     return () => {
       document.body.style.overflow = "";
     };
-  }, [isLoading]);
+  }, [isLoading, isFirstLoadComplete, setIsFirstLoadComplete]);
 
   useEffect(() => {
+    if (isFirstLoadComplete) return;
+
     const controls = animate(progress, 100, {
       duration: 2.5,
       ease: "easeInOut",
@@ -41,15 +53,15 @@ export function Preloader() {
         setDisplayProgress(Math.round(latest));
       },
       onComplete: () => {
-        // Small pause at 100% before exiting
+        // Pause at 100% so user clearly sees the filled text
         setTimeout(() => {
           setIsLoading(false);
-        }, 400);
+        }, 800);
       },
     });
 
-    return () => controls.stop();
-  }, [progress]);
+    return () => controls?.stop();
+  }, [progress, isFirstLoadComplete]);
 
   return (
     <AnimatePresence>
@@ -58,7 +70,7 @@ export function Preloader() {
           key="preloader"
           initial={{ y: 0 }}
           exit={{ y: "100%" }}
-          transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+          transition={{ duration: 1.0, ease: [0.76, 0, 0.24, 1] }}
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#121212]"
         >
           {/* Noise Overlay */}
@@ -85,7 +97,10 @@ export function Preloader() {
             {/* Foreground Layer: Solid Fill */}
             <motion.span
               className="absolute top-0 left-0 text-white"
-              style={{ clipPath }}
+              style={{
+                clipPath,
+                WebkitTextStroke: "1px white",
+              }}
             >
               HAMAS
             </motion.span>

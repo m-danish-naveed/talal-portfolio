@@ -1,8 +1,8 @@
 import { FiArrowUpRight } from "react-icons/fi";
 
-import Link from "next/link";
-
 import { cn } from "@/lib/utils/cn";
+
+import { TransitionLink } from "./transition-link";
 
 interface NavLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
@@ -37,7 +37,7 @@ export function NavLink({
   }
 
   return (
-    <Link
+    <TransitionLink
       href={href}
       className={cn(
         "text-foreground/80 hover:text-foreground text-base font-medium uppercase transition-colors",
@@ -46,6 +46,6 @@ export function NavLink({
       {...props}
     >
       {children}
-    </Link>
+    </TransitionLink>
   );
 }

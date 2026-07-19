@@ -3,9 +3,10 @@ import { FaInstagram, FaYoutube } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 
 import Image from "next/image";
-import Link from "next/link";
 
 import { motion } from "framer-motion";
+
+import { TransitionLink } from "@/lib/components/transition-link";
 
 import { homeConfig } from "@/data/pages/home.config";
 
@@ -29,7 +30,7 @@ export function FooterSection() {
         {/* Top Row */}
         <div className="flex flex-col items-center justify-between gap-10 md:flex-row md:gap-12">
           <div className="flex flex-col items-center justify-center gap-10 md:flex-row md:gap-12">
-            <Link
+            <TransitionLink
               href="/"
               className="shrink-0 transition-opacity hover:opacity-60"
             >
@@ -40,7 +41,7 @@ export function FooterSection() {
                 height={22}
                 className="h-5 w-auto"
               />
-            </Link>
+            </TransitionLink>
             <div className="h-px w-12 bg-white/10" />
             <a
               href={`mailto:${hero.email}`}
@@ -52,24 +53,24 @@ export function FooterSection() {
           </div>
 
           <nav className="flex flex-col items-center justify-center gap-5 md:flex-row md:gap-10">
-            <Link
+            <TransitionLink
               href="/"
               className="text-base font-medium text-white uppercase transition-opacity hover:opacity-60"
             >
               Home
-            </Link>
-            <Link
-              href="#work"
+            </TransitionLink>
+            <TransitionLink
+              href="/#work"
               className="text-base font-medium text-white uppercase transition-opacity hover:opacity-60"
             >
               Work
-            </Link>
-            <Link
-              href={`mailto:${hero.email}`}
+            </TransitionLink>
+            <TransitionLink
+              href="/contact"
               className="text-base font-medium text-white uppercase transition-opacity hover:opacity-60"
             >
               Contact
-            </Link>
+            </TransitionLink>
           </nav>
         </div>
 
@@ -80,12 +81,12 @@ export function FooterSection() {
           </p>
 
           <div className="order-first flex flex-col items-center justify-center gap-5 md:order-none md:flex-row md:gap-10">
-            <Link
-              href="#"
+            <TransitionLink
+              href="/contact"
               className="text-base font-medium text-white uppercase transition-opacity hover:opacity-60"
             >
               Privacy
-            </Link>
+            </TransitionLink>
           </div>
 
           <div className="flex flex-1 items-center justify-center gap-6 md:justify-end">

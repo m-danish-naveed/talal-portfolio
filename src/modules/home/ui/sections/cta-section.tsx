@@ -2,9 +2,9 @@
 
 import { FiArrowRight } from "react-icons/fi";
 
-import Link from "next/link";
-
 import { motion } from "framer-motion";
+
+import { TransitionLink } from "@/lib/components/transition-link";
 
 import { homeConfig } from "@/data/pages/home.config";
 
@@ -73,13 +73,13 @@ export function CtaSection() {
 
             {/* Button */}
             <div className="flex justify-center">
-              <Link
+              <TransitionLink
                 href="/contact"
                 className="group flex items-center justify-center gap-4 rounded-lg bg-white px-8 py-4 text-sm font-medium text-black transition-transform hover:scale-105 active:scale-95"
               >
                 <span>Contact</span>
                 <FiArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1" />
-              </Link>
+              </TransitionLink>
             </div>
           </div>
         </motion.div>

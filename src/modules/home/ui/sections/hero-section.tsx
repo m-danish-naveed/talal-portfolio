@@ -9,6 +9,8 @@ import Link from "next/link";
 
 import { motion } from "framer-motion";
 
+import { useEntryDelay } from "@/lib/hooks/use-entry-delay";
+
 import { homeConfig } from "@/data/pages/home.config";
 
 import { ShowreelDialog } from "../components/showreel-dialog";
@@ -16,25 +18,28 @@ import { homeAnimations } from "../lib/animations";
 
 export function HeroSection() {
   const [isShowreelOpen, setIsShowreelOpen] = useState(false);
+  const entryDelay = useEntryDelay();
   const videoRef = useRef<HTMLVideoElement>(null);
   const { hero } = homeConfig;
 
   useEffect(() => {
-    // Delay video start so it syncs with the preloader finishing (3.5s)
-    const timer = setTimeout(() => {
-      if (videoRef.current) {
-        videoRef.current.play().catch(console.error);
-      }
-    }, 3500);
-    return () => clearTimeout(timer);
-  }, []);
+    if (videoRef.current) {
+      // Use dynamic delay for video play
+      setTimeout(
+        () => {
+          videoRef.current?.play().catch(() => {});
+        },
+        entryDelay * 1000 + 400
+      ); // add a slight buffer to the entry delay
+    }
+  }, [entryDelay]);
 
   return (
     <section className="relative min-h-screen w-full pt-[7.5rem] pb-[7.5rem]">
       <div className="mx-auto flex max-w-[90rem] flex-col px-5 md:px-10 lg:px-16">
         {/* Animated Headline */}
         <motion.h1
-          variants={homeAnimations.heroStagger}
+          variants={homeAnimations.heroStagger(entryDelay)}
           initial="hidden"
           animate="visible"
           className="max-w-[960px] text-2xl leading-[1.2] font-medium tracking-normal md:text-[2rem] lg:text-5xl"
@@ -50,7 +55,7 @@ export function HeroSection() {
 
         {/* Meta Info */}
         <motion.div
-          variants={homeAnimations.metaFade}
+          variants={homeAnimations.metaFade(entryDelay)}
           initial="hidden"
           animate="visible"
           className="flex flex-col items-start gap-6 sm:flex-row sm:items-center"
@@ -77,7 +82,7 @@ export function HeroSection() {
 
         {/* Showreel Video Block */}
         <motion.div
-          variants={homeAnimations.videoScale}
+          variants={homeAnimations.videoScale(entryDelay)}
           initial="hidden"
           animate="visible"
           className="relative z-40 mt-auto aspect-video w-full overflow-hidden rounded-lg sm:aspect-[21/9]"

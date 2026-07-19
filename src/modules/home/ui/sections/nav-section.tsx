@@ -4,15 +4,17 @@ import { useEffect, useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 
 import Image from "next/image";
-import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { AnimatePresence, motion } from "framer-motion";
 
 import { NavLink } from "@/lib/components/nav-link";
+import { TransitionLink } from "@/lib/components/transition-link";
 
 export function NavSection() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -35,32 +37,50 @@ export function NavSection() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-[1000] transition-colors duration-300 ${
-          isScrolled ? "bg-background/90 backdrop-blur-md" : "bg-transparent"
+        className={`fixed inset-x-0 top-0 z-[1000] transition-all duration-300 ${
+          isScrolled
+            ? "bg-background/90 pt-0 backdrop-blur-md md:pt-3 lg:pt-4"
+            : "bg-transparent pt-2 md:pt-4 lg:pt-8"
         }`}
       >
         <div className="mx-auto flex max-w-[90rem] items-center justify-between px-5 py-3 md:px-10 lg:px-16">
-          <Link href="/" className="z-50 shrink-0">
+          <TransitionLink href="/" className="shrink-0 outline-none">
             <Image
               src="/images/brand/logo.svg"
               alt="Hamas Logo"
-              width={80}
-              height={24}
-              className="h-6 w-auto"
+              width={100}
+              height={28}
+              className="h-6 w-auto transition-opacity hover:opacity-60 md:h-7"
             />
-          </Link>
+          </TransitionLink>
 
           {/* Desktop Nav */}
           <nav className="hidden items-center space-x-8 md:flex">
-            <NavLink href="/">Home</NavLink>
-            <NavLink href="#work">Work</NavLink>
+            <NavLink
+              href="/"
+              className={
+                pathname === "/" ? "text-white opacity-100" : "text-white/80"
+              }
+            >
+              Home
+            </NavLink>
+            <NavLink
+              href="/#work"
+              className={
+                pathname === "/#work"
+                  ? "text-white opacity-100"
+                  : "text-white/80"
+              }
+            >
+              Work
+            </NavLink>
             <div className="bg-surface h-4 w-px" />
-            <Link
-              href="mailto:engineer.hamas.munawar@gmail.com"
+            <TransitionLink
+              href="/contact"
               className="rounded-lg bg-white px-6 py-2 text-xs font-semibold tracking-widest text-black transition-transform hover:scale-105"
             >
               CONTACT
-            </Link>
+            </TransitionLink>
           </nav>
 
           {/* Mobile Menu Toggle */}
@@ -88,27 +108,34 @@ export function NavSection() {
             transition={{ duration: 0.3 }}
             className="bg-background fixed inset-0 z-[999] flex flex-col items-center justify-center space-y-8 px-6"
           >
-            <NavLink
+            <TransitionLink
               href="/"
-              className="text-2xl font-bold"
+              className={`text-base font-medium tracking-wide uppercase transition-opacity hover:opacity-60 ${pathname === "/" ? "text-white opacity-100" : "text-white/60"}`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Home
-            </NavLink>
-            <NavLink
-              href="#work"
-              className="text-2xl font-bold"
+            </TransitionLink>
+            <TransitionLink
+              href="/#work"
+              className={`text-base font-medium tracking-wide uppercase transition-opacity hover:opacity-60 ${pathname === "/#work" ? "text-white opacity-100" : "text-white/60"}`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Work
-            </NavLink>
-            <Link
-              href="mailto:engineer.hamas.munawar@gmail.com"
+            </TransitionLink>
+            <TransitionLink
+              href="/contact"
+              className={`text-base font-medium tracking-wide uppercase transition-opacity hover:opacity-60 ${pathname === "/contact" ? "text-white opacity-100" : "text-white/60"}`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Contact
+            </TransitionLink>
+            <TransitionLink
+              href="/contact"
               className="rounded-lg bg-white px-8 py-3 text-sm font-semibold tracking-widest text-black"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               CONTACT
-            </Link>
+            </TransitionLink>
           </motion.div>
         )}
       </AnimatePresence>
