@@ -112,6 +112,13 @@ export function NavSection() {
             className="bg-background fixed inset-0 z-[999] flex flex-col items-center justify-center space-y-8 px-6"
           >
             <TransitionLink
+              href="/"
+              className={`text-base font-medium tracking-wide uppercase transition-opacity hover:opacity-60 ${pathname === "/" ? "text-white opacity-100" : "text-white/60"}`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Home
+            </TransitionLink>
+            <TransitionLink
               href="/work"
               className={`text-base font-medium tracking-wide uppercase transition-opacity hover:opacity-60 ${pathname === "/work" ? "text-white opacity-100" : "text-white/60"}`}
               onClick={() => setIsMobileMenuOpen(false)}
@@ -120,14 +127,7 @@ export function NavSection() {
             </TransitionLink>
             <TransitionLink
               href="/contact"
-              className={`text-base font-medium tracking-wide uppercase transition-opacity hover:opacity-60 ${pathname === "/contact" ? "text-white opacity-100" : "text-white/60"}`}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Contact
-            </TransitionLink>
-            <TransitionLink
-              href="/contact"
-              className="rounded-lg bg-white px-8 py-3 text-sm font-semibold tracking-widest text-black"
+              className="mt-4 rounded-lg bg-white px-8 py-3 text-sm font-semibold tracking-widest text-black"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               CONTACT
