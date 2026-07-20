@@ -12,6 +12,8 @@ import { siteAnimations } from "@/lib/animations";
 import { NavLink } from "@/lib/components/nav-link";
 import { TransitionLink } from "@/lib/components/transition-link";
 
+import { person } from "@/data/entities/person";
+
 export function NavSection() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -48,7 +50,7 @@ export function NavSection() {
           <TransitionLink href="/" className="shrink-0 outline-none">
             <Image
               src="/images/brand/logo.svg"
-              alt="Hamas Logo"
+              alt={`${person.firstName} Logo`}
               width={100}
               height={28}
               className="h-6 w-[85px] transition-opacity hover:opacity-60 md:h-7 md:w-[100px]"

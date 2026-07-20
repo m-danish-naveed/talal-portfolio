@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 
+import { contactConfig } from "@/data/pages/contact.config";
+import { siteConfig } from "@/data/site.config";
 import { ContactFormSection } from "@/modules/contact/ui/sections/contact-form-section";
 import { ContactHeroSection } from "@/modules/contact/ui/sections/contact-hero-section";
 
 export const metadata: Metadata = {
-  title: "Contact - Sam Kolder",
-  description: "Get in touch",
+  title: `${contactConfig.hero.tag} - ${siteConfig.meta.title}`,
+  description: contactConfig.hero.headline,
 };
 
 export default function ContactPage() {

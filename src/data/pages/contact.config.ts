@@ -1,4 +1,6 @@
-export const contactConfig = {
+import { type ContactConfig } from "../entities/types";
+
+export const contactConfig: ContactConfig = {
   hero: {
     tag: "Contact",
     headline: "What's up?",

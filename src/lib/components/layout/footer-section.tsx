@@ -9,10 +9,12 @@ import { motion } from "framer-motion";
 import { siteAnimations } from "@/lib/animations";
 import { TransitionLink } from "@/lib/components/transition-link";
 
+import { person } from "@/data/entities/person";
+import { socials } from "@/data/entities/socials";
 import { siteConfig } from "@/data/site.config";
 
 export function FooterSection() {
-  const { footer, socials, contact } = siteConfig;
+  const { footer, contact } = siteConfig;
 
   return (
     <motion.footer
@@ -35,7 +37,7 @@ export function FooterSection() {
             >
               <Image
                 src="/images/brand/logo.svg"
-                alt="Hamas Logo"
+                alt={`${person.firstName} Logo`}
                 width={80}
                 height={22}
                 className="h-5 w-[73px]"

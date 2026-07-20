@@ -10,6 +10,8 @@ import {
   useTransform,
 } from "framer-motion";
 
+import { person } from "@/data/entities/person";
+
 import { useGlobalState } from "./global-provider";
 
 export function Preloader() {
@@ -91,7 +93,7 @@ export function Preloader() {
                 color: "transparent",
               }}
             >
-              HAMAS
+              {person.firstName.toUpperCase()}
             </span>
 
             {/* Foreground Layer: Solid Fill */}
@@ -102,7 +104,7 @@ export function Preloader() {
                 WebkitTextStroke: "1px white",
               }}
             >
-              HAMAS
+              {person.firstName.toUpperCase()}
             </motion.span>
           </div>
 

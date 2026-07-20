@@ -1,12 +1,10 @@
-export const homeConfig = {
-  meta: {
-    title: "Hamas Munawar",
-    description:
-      "A world-renowned filmmaker that inspired a generation of content creators from all around the world.",
-  },
+import { person } from "../entities/person";
+import { type HomeConfig } from "../entities/types";
+
+export const homeConfig: HomeConfig = {
   hero: {
     headline: [
-      "Hamas Munawar is a world-renowned filmmaker",
+      `${person.fullName} is a world-renowned ${person.role.toLowerCase()}`,
       "that inspired a generation of content",
       "creators from all around the world",
     ],

@@ -9,6 +9,8 @@ import { Preloader } from "@/lib/components/preloader";
 import { SmoothScrollProvider } from "@/lib/components/smooth-scroll";
 import { TransitionProvider } from "@/lib/components/transition-provider";
 
+import { siteConfig } from "@/data/site.config";
+
 import "./globals.css";
 
 const inconsolata = Inconsolata({
@@ -22,9 +24,8 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hamas Munawar",
-  description:
-    "A world-renowned filmmaker that inspired a generation of content creators from all around the world.",
+  title: siteConfig.meta.title,
+  description: siteConfig.meta.description,
 };
 
 export default function RootLayout({

@@ -7,10 +7,10 @@ import { motion } from "framer-motion";
 
 import { siteAnimations } from "@/lib/animations";
 
-import { siteConfig } from "@/data/site.config";
+import { socials } from "@/data/entities/socials";
 
 export function SocialSection() {
-  const { socials } = siteConfig;
+  // socials is imported directly
 
   return (
     <motion.section
