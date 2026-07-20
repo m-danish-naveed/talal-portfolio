@@ -10,9 +10,9 @@ import {
   useTransform,
 } from "framer-motion";
 
-import { person } from "@/data/entities/person";
+import { useGlobalState } from "@/lib/providers/global-provider";
 
-import { useGlobalState } from "./global-provider";
+import { person } from "@/data/entities/person";
 
 export function Preloader() {
   const { isFirstLoadComplete, setIsFirstLoadComplete } = useGlobalState();

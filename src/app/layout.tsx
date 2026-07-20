@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 
-import { GlobalProvider } from "@/lib/components/global-provider";
-import { FooterSection } from "@/lib/components/layout/footer-section";
-import { NavSection } from "@/lib/components/layout/nav-section";
-import { SocialSection } from "@/lib/components/layout/social-section";
-import { Preloader } from "@/lib/components/preloader";
-import { SmoothScrollProvider } from "@/lib/components/smooth-scroll";
-import { TransitionProvider } from "@/lib/components/transition-provider";
 import { inconsolata, spaceMono } from "@/lib/fonts";
+import { GlobalProvider } from "@/lib/providers/global-provider";
+import { SmoothScrollProvider } from "@/lib/providers/smooth-scroll-provider";
+import { TransitionProvider } from "@/lib/providers/transition-provider";
 import { constructMetadata } from "@/lib/utils/metadata";
+
+import { Preloader } from "@/modules/shared/ui/components/preloader";
+import { FooterSection } from "@/modules/shared/ui/sections/footer-section";
+import { NavSection } from "@/modules/shared/ui/sections/nav-section";
+import { SocialSection } from "@/modules/shared/ui/sections/social-section";
 
 import "./globals.css";
 

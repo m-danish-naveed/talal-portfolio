@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { useGlobalState } from "../components/global-provider";
+import { useGlobalState } from "../providers/global-provider";
 
 export function useEntryDelay() {
   const { isFirstLoadComplete } = useGlobalState();

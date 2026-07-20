@@ -6,7 +6,7 @@ import { siteAnimations } from "@/lib/animations";
 
 import { works } from "@/data/entities/works";
 
-import { WorkCard } from "./work-card";
+import { WorkCard } from "../components/work-card";
 
 export function WorksSection() {
   // works is imported directly

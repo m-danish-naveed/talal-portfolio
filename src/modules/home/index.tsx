@@ -1,4 +1,4 @@
-import { WorksSection } from "@/lib/components/works/works-section";
+import { WorksSection } from "@/modules/shared/ui/sections/works-section";
 
 import { CtaSection } from "./ui/sections/cta-section";
 import { HeroSection } from "./ui/sections/hero-section";

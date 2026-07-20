@@ -1,11 +1,11 @@
-export interface SeoMeta {
+interface SeoMeta {
   title: string;
   description: string;
   url: string;
   keywords: string[];
 }
 
-export interface ContactInfo {
+interface ContactInfo {
   email: string;
   address: {
     title: string;
@@ -14,7 +14,7 @@ export interface ContactInfo {
   location: string;
 }
 
-export interface FooterConfig {
+interface FooterConfig {
   copyright: string;
 }
 
@@ -41,30 +41,30 @@ export interface WorkItem {
 }
 
 // Page Specific Types
-export interface Showreel {
+interface Showreel {
   youtubeUrl: string;
   posterImage: string;
   videoMp4: string;
   videoWebm: string;
 }
 
-export interface HomeHero {
+interface HomeHero {
   headline: string[];
   showreel: Showreel;
 }
 
-export interface Logo {
+interface Logo {
   src: string;
   alt: string;
 }
 
-export interface Stat {
+interface Stat {
   value: number;
   label: string;
   suffix: string;
 }
 
-export interface Cta {
+interface Cta {
   videoMp4: string;
   videoWebm: string;
   posterImage: string;
@@ -77,7 +77,7 @@ export interface HomeConfig {
   cta: Cta;
 }
 
-export interface PageHero {
+interface PageHero {
   tag: string;
   headline: string;
 }
@@ -86,7 +86,7 @@ export interface WorkConfig {
   hero: PageHero;
 }
 
-export interface ContactFormConfig {
+interface ContactFormConfig {
   firstNameLabel: string;
   lastNameLabel: string;
   emailLabel: string;

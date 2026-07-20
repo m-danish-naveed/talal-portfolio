@@ -4,7 +4,7 @@ import { type ReactNode } from "react";
 
 import Link, { type LinkProps } from "next/link";
 
-import { useTransition } from "./transition-provider";
+import { useTransition } from "../providers/transition-provider";
 
 interface TransitionLinkProps
   extends
