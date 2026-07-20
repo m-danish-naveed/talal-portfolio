@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
 
 import { WorksSection } from "@/lib/components/works/works-section";
+import { constructMetadata } from "@/lib/utils/metadata";
 
 import { workConfig } from "@/data/pages/work.config";
-import { siteConfig } from "@/data/site.config";
 import { WorkHeroSection } from "@/modules/work/ui/sections/work-hero-section";
 
-export const metadata: Metadata = {
-  title: `${workConfig.hero.tag} - ${siteConfig.meta.title}`,
+export const metadata: Metadata = constructMetadata({
+  title: workConfig.hero.tag,
   description: workConfig.hero.headline,
-};
+  url: "/work",
+});
 
 export default function WorkPage() {
   return (

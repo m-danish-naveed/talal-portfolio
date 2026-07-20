@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inconsolata, Space_Mono } from "next/font/google";
 
 import { GlobalProvider } from "@/lib/components/global-provider";
 import { FooterSection } from "@/lib/components/layout/footer-section";
@@ -8,25 +7,12 @@ import { SocialSection } from "@/lib/components/layout/social-section";
 import { Preloader } from "@/lib/components/preloader";
 import { SmoothScrollProvider } from "@/lib/components/smooth-scroll";
 import { TransitionProvider } from "@/lib/components/transition-provider";
-
-import { siteConfig } from "@/data/site.config";
+import { inconsolata, spaceMono } from "@/lib/fonts";
+import { constructMetadata } from "@/lib/utils/metadata";
 
 import "./globals.css";
 
-const inconsolata = Inconsolata({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-const spaceMono = Space_Mono({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-  variable: "--font-space-mono",
-});
-
-export const metadata: Metadata = {
-  title: siteConfig.meta.title,
-  description: siteConfig.meta.description,
-};
+export const metadata: Metadata = constructMetadata();
 
 export default function RootLayout({
   children,

@@ -1,6 +1,8 @@
 export interface SeoMeta {
   title: string;
   description: string;
+  url: string;
+  keywords: string[];
 }
 
 export interface ContactInfo {

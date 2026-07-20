@@ -5,6 +5,14 @@ export const siteConfig: SiteConfig = {
   meta: {
     title: person.fullName,
     description: `A world-renowned ${person.role.toLowerCase()} that inspired a generation of content creators from all around the world.`,
+    url: "https://yourdomain.com", // TODO: Update this to your actual domain
+    keywords: [
+      person.fullName,
+      "Filmmaker",
+      "Content Creator",
+      "Director",
+      "Portfolio",
+    ],
   },
   contact: {
     email: person.email,
