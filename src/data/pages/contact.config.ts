@@ -7,7 +7,7 @@ export const contactConfig: ContactConfig = {
   },
   form: {
     scriptUrl:
-      "https://script.google.com/macros/s/AKfycbxAHIHvl85wrBDSJVE_st5fGCBb0RwXSGTWYS1WI_5njY21zxBZW6bmCn32HhkbXF9q/exec",
+      "https://script.google.com/macros/s/AKfycbwNWFCAxVxFeLtJYTmssMCbVvCJIDQAiLUWNmhfz12mLl02c4WKhcvqlCd2TbCPFPfWcg/exec",
     firstNameLabel: "First name*",
     lastNameLabel: "Last name*",
     emailLabel: "Email*",

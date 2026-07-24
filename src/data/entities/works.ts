@@ -6,8 +6,8 @@ export const works: WorkItem[] = [
     title: "Insta360 X4",
     client: "Insta360",
     date: "4/22/2024",
-    image: "/images/works/insta360.webp",
-    video: "/images/works/insta360.mp4",
+    image: "/images/works/insta360.webp", // resolve as @/public/images/works/insta360.webp
+    video: "/images/works/insta360.mp4", // resolve as @/public/images/works/insta360.mp4
     link: "#",
   },
   {
