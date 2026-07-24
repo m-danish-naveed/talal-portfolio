@@ -96,6 +96,7 @@ interface ContactFormConfig {
   submitButton: string;
   successMessage: string;
   errorMessage: string;
+  scriptUrl: string;
 }
 
 export interface ContactConfig {
