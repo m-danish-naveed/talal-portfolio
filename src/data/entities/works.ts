@@ -3,38 +3,38 @@ import { type WorkItem } from "./types";
 export const works: WorkItem[] = [
   {
     id: "insta360",
-    title: "Insta360 X4",
-    client: "Insta360",
-    date: "4/22/2024",
-    image: "/images/works/insta360.webp", // resolve as @/public/images/works/insta360.webp
-    video: "/images/works/insta360.mp4", // resolve as @/public/images/works/insta360.mp4
-    link: "#",
-  },
-  {
-    id: "underwater",
-    title: "Filming An Entire Short Film 100FT UNDERWATER...",
-    client: "Personal",
-    date: "7/10/2021",
-    image: "/images/works/underwater.webp",
-    video: "/images/works/underwater.mp4",
+    title: "Polished Raw Footage",
+    client: "Sample Edit",
+    date: "4/03/2025",
+    image: "/images/works/iman-gadzi-1.webp", // resolve as @/public/images/works/insta360.webp
+    video: "/images/works/iman-gadzi-video.mp4", // resolve as @/public/images/works/insta360.mp4
     link: "#",
   },
   {
     id: "drone-clips",
-    title: "My Best Drone Clips",
+    title: "Motion Design for Crumble",
     client: "Personal",
-    date: "11/10/2023",
-    image: "/images/works/drone-clips.webp",
-    video: "/images/works/drone-clips.mp4",
+    date: "11/06/2026",
+    image: "/images/works/crumble-thumb-nail.png",
+    video: "/images/works/crumble-ad.mp4",
+    link: "#",
+  },
+  {
+    id: "underwater",
+    title: "Minimalistic Long-Form Edit",
+    client: "Personal",
+    date: "7/03/2026",
+    image: "/images/works/iman-gadzi-2.webp",
+    video: "/images/works/iman-gadzi-video-2.mp4",
     link: "#",
   },
   {
     id: "avata",
-    title: "DJI Avata",
-    client: "DJI",
-    date: "8/25/2022",
-    image: "/images/works/avata.webp",
-    video: "/images/works/avata.mp4",
+    title: "Behind the scene",
+    client: "Personal",
+    date: "23/12/2024",
+    image: "/images/works/saas-thumb-nail.webp",
+    video: "/images/works/saas.mp4",
     link: "#",
   },
 ];

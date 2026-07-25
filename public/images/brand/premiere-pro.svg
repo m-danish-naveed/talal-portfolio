@@ -1,0 +1,7 @@
+<svg width="500" height="75" viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" stroke="#cfcfcf" stroke-width="2.5">
+    <rect x="4" y="6" rx="8"/>
+  </g>
+  <text x="26" y="35" text-anchor="middle" fill="#cfcfcf" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="40">Pr</text>
+  <text x="60" y="38" fill="#cfcfcf" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="50" letter-spacing="0.5">Premiere Pro</text>
+</svg>

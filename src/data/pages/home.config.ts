@@ -4,9 +4,9 @@ import { type HomeConfig } from "../entities/types";
 export const homeConfig: HomeConfig = {
   hero: {
     headline: [
-      `${person.fullName} is a world-renowned ${person.role.toLowerCase()}`,
-      "that inspired a generation of content",
-      "creators from all around the world",
+      `${person.fullName} is a ${person.role.toLowerCase()}`,
+      "crafting fast, clean visuals storytelling",
+      "that elevates brand presence",
     ],
     showreel: {
       youtubeUrl: "https://www.youtube.com/watch?v=7OoSX3KbXOw",
@@ -16,11 +16,11 @@ export const homeConfig: HomeConfig = {
     },
   },
   logos: [
-    { src: "/images/brand/logo-canon.svg", alt: "Canon" },
-    { src: "/images/brand/logo-youtube.svg", alt: "YouTube" },
-    { src: "/images/brand/logo-dji.svg", alt: "DJI" },
-    { src: "/images/brand/logo-hyundai.svg", alt: "Hyundai" },
-    { src: "/images/brand/logo-musicbed.svg", alt: "Musicbed" },
+    { src: "/images/brand/davinci-resolve.svg", alt: "Davinci Resolve" },
+    { src: "/images/brand/figma.svg", alt: "Figma" },
+    { src: "/images/brand/capcut.svg", alt: "CapCut" },
+    { src: "/images/brand/after-effects.svg", alt: "After Effects" },
+    { src: "/images/brand/premiere-pro.svg", alt: "Premiere Pro" },
   ],
 
   cta: {
@@ -28,9 +28,9 @@ export const homeConfig: HomeConfig = {
     videoWebm: "/videos/clip.webm",
     posterImage: "/images/sam-clip-poster.webp",
     stats: [
-      { value: 1.34, label: "Subscribers", suffix: "M" },
-      { value: 1.6, label: "Followers", suffix: "M" },
-      { value: 64, label: "Views", suffix: "M" },
+      { value: 4, label: "Experience", suffix: "Y" },
+      { value: 50, label: "Creative-Projects", suffix: "+" },
+      { value: 100, label: "Client-Focused", suffix: "%" },
     ],
   },
 };
