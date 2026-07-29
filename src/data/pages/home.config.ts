@@ -11,8 +11,8 @@ export const homeConfig: HomeConfig = {
     showreel: {
       youtubeUrl: "",
       posterImage: "/videos/notionThumbnail.png",
-      videoMp4: "",
-      videoWebm: "/videos/notion1.mp4",
+      videoMp4: "/videos/notion1.mp4",
+      videoWebm: "",
     },
   },
   logos: [
