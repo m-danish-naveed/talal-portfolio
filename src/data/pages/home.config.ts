@@ -10,7 +10,7 @@ export const homeConfig: HomeConfig = {
     ],
     showreel: {
       youtubeUrl: "",
-      posterImage: "/videos/notionThumbnail.png",
+      posterImage: "/videos/notionThumbNail.png",
       videoMp4: "/videos/notion1.mp4",
       videoWebm: "",
     },

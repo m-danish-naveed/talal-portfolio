@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FiMail, FiMapPin } from "react-icons/fi";
 
 import Link from "next/link";
@@ -16,6 +16,7 @@ import { siteConfig } from "@/data/site.config";
 export function HeroSection() {
   const entryDelay = useEntryDelay();
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
   const { hero } = homeConfig;
   const { contact } = siteConfig;
 
@@ -23,29 +24,13 @@ export function HeroSection() {
     const video = videoRef.current;
     if (!video) return;
 
-    const enableAudio = () => {
+    if (isHovered) {
       video.muted = false;
       video.play().catch(() => {});
-      window.removeEventListener("pointerdown", enableAudio);
-      window.removeEventListener("keydown", enableAudio);
-    };
-
-    window.addEventListener("pointerdown", enableAudio, { once: true });
-    window.addEventListener("keydown", enableAudio, { once: true });
-
-    const timeoutId = setTimeout(
-      () => {
-        video.play().catch(() => {});
-      },
-      entryDelay * 1000 + 400
-    );
-
-    return () => {
-      clearTimeout(timeoutId);
-      window.removeEventListener("pointerdown", enableAudio);
-      window.removeEventListener("keydown", enableAudio);
-    };
-  }, [entryDelay]);
+    } else {
+      video.pause();
+    }
+  }, [isHovered]);
 
   return (
     <section className="relative min-h-screen w-full pt-[7.5rem] pb-[7.5rem]">
@@ -98,14 +83,27 @@ export function HeroSection() {
           variants={siteAnimations.videoScale(entryDelay)}
           initial="hidden"
           animate="visible"
+          tabIndex={0}
           className="relative z-40 mt-auto aspect-video w-full overflow-hidden rounded-lg sm:aspect-[21/9]"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onFocus={() => setIsHovered(true)}
+          onBlur={() => setIsHovered(false)}
         >
+          {hero.showreel.posterImage && (
+            <img
+              src={hero.showreel.posterImage}
+              alt="Showreel thumbnail"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          )}
           <video
             ref={videoRef}
             loop
             playsInline
+            preload="auto"
             poster={hero.showreel.posterImage || undefined}
-            className="h-full w-full object-cover"
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}
           >
             {hero.showreel.videoMp4 && (
               <source src={hero.showreel.videoMp4} type="video/mp4" />
