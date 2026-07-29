@@ -1,7 +1,7 @@
 "use client";
 
 import { Fragment } from "react";
-import { FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 
 import { motion } from "framer-motion";
 
@@ -32,6 +32,9 @@ export function SocialSection() {
             >
               {social.iconName === "instagram" && (
                 <FaInstagram className="h-6 w-6 flex-none" />
+              )}
+              {social.iconName === "linkedin" && (
+                <FaLinkedin className="h-6 w-6 flex-none" />
               )}
               {social.iconName === "youtube" && (
                 <FaYoutube className="h-6 w-6 flex-none" />

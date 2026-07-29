@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { FiArrowRight } from "react-icons/fi";
 
 import { motion } from "framer-motion";
@@ -13,6 +14,29 @@ import { StatCounter } from "../components/stat-counter";
 
 export function CtaSection() {
   const { cta } = homeConfig;
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const enableAudio = () => {
+      video.muted = false;
+      video.play().catch(() => {});
+      window.removeEventListener("pointerdown", enableAudio);
+      window.removeEventListener("keydown", enableAudio);
+    };
+
+    window.addEventListener("pointerdown", enableAudio, { once: true });
+    window.addEventListener("keydown", enableAudio, { once: true });
+
+    video.play().catch(() => {});
+
+    return () => {
+      window.removeEventListener("pointerdown", enableAudio);
+      window.removeEventListener("keydown", enableAudio);
+    };
+  }, []);
 
   return (
     <section className="w-full py-24 sm:py-32">
@@ -26,9 +50,9 @@ export function CtaSection() {
         >
           {/* Background Video */}
           <video
+            ref={videoRef}
             autoPlay
             loop
-            muted
             playsInline
             poster={cta.posterImage}
             className="absolute inset-0 h-full w-full object-cover opacity-60"

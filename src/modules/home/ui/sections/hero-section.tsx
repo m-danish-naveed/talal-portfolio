@@ -1,10 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { FaPlay } from "react-icons/fa";
+import { useEffect, useRef } from "react";
 import { FiMail, FiMapPin } from "react-icons/fi";
 
-import Image from "next/image";
 import Link from "next/link";
 
 import { motion } from "framer-motion";
@@ -15,25 +13,38 @@ import { useEntryDelay } from "@/lib/hooks/use-entry-delay";
 import { homeConfig } from "@/data/pages/home.config";
 import { siteConfig } from "@/data/site.config";
 
-import { ShowreelDialog } from "../components/showreel-dialog";
-
 export function HeroSection() {
-  const [isShowreelOpen, setIsShowreelOpen] = useState(false);
   const entryDelay = useEntryDelay();
   const videoRef = useRef<HTMLVideoElement>(null);
   const { hero } = homeConfig;
   const { contact } = siteConfig;
 
   useEffect(() => {
-    if (videoRef.current) {
-      // Use dynamic delay for video play
-      setTimeout(
-        () => {
-          videoRef.current?.play().catch(() => {});
-        },
-        entryDelay * 1000 + 400
-      ); // add a slight buffer to the entry delay
-    }
+    const video = videoRef.current;
+    if (!video) return;
+
+    const enableAudio = () => {
+      video.muted = false;
+      video.play().catch(() => {});
+      window.removeEventListener("pointerdown", enableAudio);
+      window.removeEventListener("keydown", enableAudio);
+    };
+
+    window.addEventListener("pointerdown", enableAudio, { once: true });
+    window.addEventListener("keydown", enableAudio, { once: true });
+
+    const timeoutId = setTimeout(
+      () => {
+        video.play().catch(() => {});
+      },
+      entryDelay * 1000 + 400
+    );
+
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener("pointerdown", enableAudio);
+      window.removeEventListener("keydown", enableAudio);
+    };
   }, [entryDelay]);
 
   return (
@@ -92,9 +103,8 @@ export function HeroSection() {
           <video
             ref={videoRef}
             loop
-            muted
             playsInline
-            poster={hero.showreel.posterImage}
+            poster={hero.showreel.posterImage || undefined}
             className="h-full w-full object-cover"
           >
             {hero.showreel.videoMp4 && (
@@ -104,32 +114,8 @@ export function HeroSection() {
               <source src={hero.showreel.videoWebm} type="video/webm" />
             )}
           </video>
-
-          {/* Showreel Button */}
-          <div className="absolute inset-0 z-50 flex items-center justify-center">
-            <button
-              onClick={() => setIsShowreelOpen(true)}
-              className="group relative flex items-center justify-center rounded-full bg-[#65aac8] p-3 transition-transform hover:scale-105 active:scale-95 md:p-5"
-              aria-label="Play showreel"
-            >
-              <Image
-                src="/images/brand/showreel-icon.svg"
-                alt="Showreel Circular Text"
-                width={148}
-                height={148}
-                className="animate-spin-slow h-24 w-24 opacity-90 transition-opacity group-hover:opacity-100 md:h-[148px] md:w-[148px]"
-              />
-              <FaPlay className="absolute z-10 h-4 w-4 opacity-90 transition-opacity group-hover:opacity-100 md:h-6 md:w-6" />
-            </button>
-          </div>
         </motion.div>
       </div>
-
-      <ShowreelDialog
-        isOpen={isShowreelOpen}
-        onClose={() => setIsShowreelOpen(false)}
-        youtubeUrl={hero.showreel.youtubeUrl}
-      />
     </section>
   );
 }

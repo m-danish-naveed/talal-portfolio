@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -25,6 +25,37 @@ interface WorkCardProps {
 
 export function WorkCard({ item, offset, priority }: WorkCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const enableAudio = () => {
+      video.muted = false;
+      video.play().catch(() => {});
+      window.removeEventListener("pointerdown", enableAudio);
+      window.removeEventListener("keydown", enableAudio);
+    };
+
+    window.addEventListener("pointerdown", enableAudio, { once: true });
+    window.addEventListener("keydown", enableAudio, { once: true });
+
+    return () => {
+      window.removeEventListener("pointerdown", enableAudio);
+      window.removeEventListener("keydown", enableAudio);
+    };
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (isHovered) {
+      video.muted = false;
+      video.play().catch(() => {});
+    }
+  }, [isHovered]);
 
   return (
     <motion.div
@@ -36,6 +67,8 @@ export function WorkCard({ item, offset, priority }: WorkCardProps) {
         className="group block w-full outline-none"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        onFocus={() => setIsHovered(true)}
+        onBlur={() => setIsHovered(false)}
       >
         <div className="bg-surface relative z-40 aspect-[16/9] w-full overflow-hidden rounded-lg">
           {/* Static Image */}
@@ -49,10 +82,10 @@ export function WorkCard({ item, offset, priority }: WorkCardProps) {
           />
           {/* Hover Video */}
           <video
+            ref={videoRef}
             src={item.video}
             autoPlay
             loop
-            muted
             playsInline
             className={`absolute inset-0 z-10 h-full w-full object-cover transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}
           />

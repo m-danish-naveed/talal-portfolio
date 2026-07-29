@@ -42,8 +42,8 @@ export interface WorkItem {
 
 // Page Specific Types
 interface Showreel {
-  youtubeUrl: string;
-  posterImage: string;
+  youtubeUrl?: string;
+  posterImage?: string;
   videoMp4: string;
   videoWebm: string;
 }

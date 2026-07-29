@@ -7,7 +7,7 @@ import { X } from "lucide-react";
 interface ShowreelDialogProps {
   isOpen: boolean;
   onClose: () => void;
-  youtubeUrl: string;
+  youtubeUrl?: string;
 }
 
 export function ShowreelDialog({
@@ -39,6 +39,8 @@ export function ShowreelDialog({
       onClose();
     }
   };
+
+  if (!youtubeUrl) return null;
 
   // Convert watch URL to embed URL
   const embedUrl = youtubeUrl.replace("watch?v=", "embed/");

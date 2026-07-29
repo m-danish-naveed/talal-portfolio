@@ -9,10 +9,10 @@ export const homeConfig: HomeConfig = {
       "that elevates brand presence",
     ],
     showreel: {
-      youtubeUrl: "https://www.youtube.com/watch?v=7OoSX3KbXOw",
-      posterImage: "/images/sam-showreel-poster.webp",
+      youtubeUrl: "",
+      posterImage: "/videos/notionThumbnail.png",
       videoMp4: "",
-      videoWebm: "/videos/showreel.webm",
+      videoWebm: "/videos/notion1.mp4",
     },
   },
   logos: [

@@ -1,5 +1,5 @@
 "use client";
-import { FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 
 import Image from "next/image";
@@ -102,6 +102,9 @@ export function FooterSection() {
               >
                 {social.iconName === "instagram" && (
                   <FaInstagram className="h-6 w-6 text-white" />
+                )}
+                {social.iconName === "linkedin" && (
+                  <FaLinkedin className="h-6 w-6 text-white" />
                 )}
                 {social.iconName === "youtube" && (
                   <FaYoutube className="h-6 w-6 text-white" />
