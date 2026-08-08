@@ -26,9 +26,11 @@ export function HeroSection() {
 
     if (isHovered) {
       video.muted = false;
+      video.volume = 1;
       video.play().catch(() => {});
     } else {
       video.pause();
+      video.muted = true;
     }
   }, [isHovered]);
 
@@ -101,6 +103,7 @@ export function HeroSection() {
             ref={videoRef}
             loop
             playsInline
+            muted={!isHovered}
             preload="auto"
             poster={hero.showreel.posterImage || undefined}
             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}

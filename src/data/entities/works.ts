@@ -37,4 +37,13 @@ export const works: WorkItem[] = [
     video: "/images/works/saas.webm",
     link: "#",
   },
+  {
+    id: "slack",
+    title: "Slack Edit",
+    client: "Client",
+    date: "01/08/2026",
+    image: "/images/works/slackThumbNail.png",
+    video: "/images/works/slack.mp4",
+    link: "#",
+  },
 ];

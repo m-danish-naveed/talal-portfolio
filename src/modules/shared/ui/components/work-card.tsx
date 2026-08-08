@@ -53,7 +53,11 @@ export function WorkCard({ item, offset, priority }: WorkCardProps) {
 
     if (isHovered) {
       video.muted = false;
+      video.volume = 1;
       video.play().catch(() => {});
+    } else {
+      video.pause();
+      video.muted = true;
     }
   }, [isHovered]);
 
@@ -87,6 +91,7 @@ export function WorkCard({ item, offset, priority }: WorkCardProps) {
             autoPlay
             loop
             playsInline
+            muted={!isHovered}
             className={`absolute inset-0 z-10 h-full w-full object-cover transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}
           />
         </div>
